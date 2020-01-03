@@ -2,9 +2,174 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Main Page After login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Main page</title>
+     <style>
+            body {
+            background-image: url('homebg.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            max-width:100%;height:auto;
+            }
+
+      </style>
+
+
+        <style>
+
+  .topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+
+
+
+
+            .button {
+                float:right;
+                border-radius: 2px;
+                background-color: #31aa37;
+                border: none;
+                color: #FFFFFF;
+                text-align: center;
+                font-size: 22px;
+                padding: 20px;
+                width: 130px;
+                transition: all 0.5s;
+                cursor: pointer;
+                margin: 5px;
+                margin-top: 30px;
+                }
+            .button span {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+                }
+
+            .button span:after {
+                content: '\00bb';
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+                }
+
+            .button:hover span {
+                padding-right: 25px;
+                }
+
+            .button:hover span:after {
+                opacity: 1;
+                right: 0;
+                }
+
+
+
+
+
+                /* Style the links inside the navigation bar */
+.topnav a {
+  float: right;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  right: -20px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the "active" element to highlight the current page */
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+/* Style the search box inside the navigation bar */
+.topnav input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+
+/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
+@media screen and (max-width: 600px) {
+  .topnav a, .topnav input[type=text] {
+    float: right;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </style>
+
 </head>
 <body>
+
+
+  <a href="home.html">
+        <img src="logo.png" alt="HTML tutorial" style="width:300px;height:150px;border:0;">
+    </a>
+
+<button class="button" onclick="document.getElementById('idPost your AD').style.display='block'" style="width:200px; height: align-self"><span>Post Your AD</span></button>
+<button class="button" onclick="document.getElementById('idLog out').style.display='block'" style="width:150px; height: align-self"><span>Log Out</span></button>
+<button class="button" onclick="document.getElementById('idMy Profile').style.display='block'" style="width:150px; height: align-self"><span>My Profile</span></button>
+
+
+<div class="topnav">
+  <a class="active" href="#home">Search</a>
+  <input type="text" placeholder="What are you looking for?">
+</div>
+
+
+
+
+
+
+
+
 
 
 </body>
