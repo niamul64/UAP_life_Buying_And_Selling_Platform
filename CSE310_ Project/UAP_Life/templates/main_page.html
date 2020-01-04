@@ -19,6 +19,7 @@
 
   <style>
 /* Style the links inside the navigation bar */
+
 .topnav a {
   float: right;
   display: block;
@@ -31,13 +32,13 @@
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #ddd;
+  background-color: #0568B0;
   color: black;
 }
 
 /* Style the "active" element to highlight the current page */
 .topnav a.active {
-  background-color: green;
+  background-color: #0568B0;
   color: white;
 }
 
@@ -52,7 +53,7 @@
 }
 
 /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
   .topnav a, .topnav input[type=text] {
     float: right;
 
@@ -84,7 +85,7 @@
                 transition: all 0.5s;
                 cursor: pointer;
                 margin: 5px;
-                margin-top: 10px;
+
                 }
             .button span {
                 cursor: pointer;
@@ -111,26 +112,309 @@
                 right: 0;
                 }
 
+
+
+
+
+
+
+
+
+                .button1 {
+                float:right;
+                border-radius: 2px;
+                background-color: #EEBD10;
+                border: none;
+                color: #FFFFF;
+                text-align: center;
+                font-size: 22px;
+                padding: 20px;
+                width: 130px;
+                transition: all 0.5s;
+                cursor: pointer;
+                margin: 5px;
+
+                }
+            .button1 span {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+                }
+
+            .button1 span:after {
+                content: '\00bb';
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+                }
+
+            .button1:hover span {
+                padding-right: 25px;
+                }
+
+            .button1:hover span:after {
+                opacity: 1;
+                right: 0;
+                }
+
+
+
+
+
+
+
+            .ima{
+            float:left;
+            }
+
+            .clear{
+            clear:left;
+            }
+
+
         </style>
+
+
+
+
+
+<style>
+
+
+
+
+
+
+</style>
+
+
+<style>
+/* Style The Dropdown Button */
+
+.dropdown {
+    float: left;
+    position: relative;
+}
+
+.dropdown .dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-left: 5px;
+}
+
+
+
+.dropdown-one {
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-two {
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  left: 160px;
+  top: 0px;
+  min-width: 160px;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown:hover .dropdown-one, #link1:hover > .dropdown-two {
+  display: block;
+}
+
+.dropdown-one .dItem {
+    color: black;
+    padding: 12px 16px;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-one .dItem:hover, .dropdown-two a:hover {
+    background-color: #ddd;
+}
+
+
+
+	 .button_QBANK {
+                border-radius: 2px;
+                background-color: #4CAF50;
+                border: none;
+                color: white;
+                text-align: center;
+                padding: 16px;
+                font-size: 16px;
+
+                width: 130px;
+                transition: all 0.5s;
+                cursor: pointer;
+                margin-top: 30px;
+                margin-left: 5px;
+                }
+            .button_QBANK span {
+                cursor: pointer;
+                display: inline-block;
+                position: relative;
+                transition: 0.5s;
+                }
+
+            .button_QBANK span:after {
+                content: '\00bb';
+                position: absolute;
+                opacity: 0;
+                top: 0;
+                right: -20px;
+                transition: 0.5s;
+                }
+
+            .button_QBANK:hover span {
+                padding-right: 25px;
+                }
+
+            .button_QBANK:hover span:after {
+                opacity: 1;
+                right: 0;
+                }
+
+			.cat{
+
+			display:inline;
+			margin-top:5px;
+			}
+
+	</style>
+
+
+
+
+
+
 
 </head>
 <body>
 
 
-  <a href="home.html">
-        <img src="small.png" alt="HTML tutorial" style="width:200px;height:100px;border:0;">
-    </a>
-
-<button class="button" onclick="document.getElementById('idPost your AD').style.display='block'" style="width:200px; height: align-self"><span>Post Your AD</span></button>
-<button class="button" onclick="document.getElementById('idLog out').style.display='block'" style="width:150px; height: align-self"><span>Log Out</span></button>
-<button class="button" onclick="document.getElementById('idMy Profile').style.display='block'" style="width:150px; height: align-self"><span>My Profile</span></button>
+<img class="ima" src="small.png" alt="HTML tutorial" style="width:200px;height:100px;border:0;">
 
 
+
+
+
+<button class="button1" onclick="document.getElementById('idPost your AD').style.display='block'" style="width:auto; height: align-self"><span>Post Your AD</span></button>
+<button class="button" onclick="document.getElementById('idLog out').style.display='block'" style="width:auto; height: align-self"><span>Log Out</span></button>
+<button class="button" onclick="document.getElementById('idMy Profile').style.display='block'" style="width:auto; height: align-self"><span>My Profile</span></button>
+<div class="clear"></div>
 <div class="topnav">
   <a class="active" href="#home">Search</a>
   <input type="text" placeholder="What are you looking for?">
 </div>
 
+
+
+
+<div class="cat">
+
+<button class="button_QBANK" onclick="document.getElementById('idUAP QUESTION BANK').style.display='block'" style="width:auto; height: align-self">
+    <span>UAP QUESTION BANK</span>
+</button>
+      <div class="dropdown">
+        <div class="dropbtn">SEARCH BY DEPARTMENT</div>
+
+        <div class="dropdown-one">
+
+            <div class="dItem" href="#">EEE</div>
+            <div class="dItem" href="#">CSE</div>
+		    <div class="dItem" href="#">Civil</div>
+		    <div class="dItem" href="#">Architecture</div>
+			<div class="dItem" href="#">Business Administration</div>
+			<div class="dItem" href="#">English</div>
+			<div class="dItem" href="#">Pharmacy</div>
+			<div class="dItem" href="#">Law</div>
+
+
+        </div>
+      </div>
+
+
+
+
+
+      <div class="dropdown">
+        <div class="dropbtn">SEARCHING CATEGORIES</div>
+
+        <div class="dropdown-one">
+          <div id="link1" class="dItem" href="#">books
+            <!--  Inside Dropdown -->
+            <div class="dropdown-two">
+             <div class="dItem" id="file" href="#">EEE</div>
+			  <div class="dItem" id="file" href="#">CSE</div>
+			  <div class="dItem" id="file" href="#">Law</div>
+			  <div class="dItem" id="file" href="#">Business</div>
+			  <div class="dItem" id="file" href="#">Pharmacy</div>
+			  <div class="dItem" id="file" href="#">English</div>
+			  <div class="dItem" id="file" href="#">History</div>
+			  <div class="dItem" id="file" href="#">Math</div>
+			  <div class="dItem" id="file" href="#">Civil</div>
+                <div class="dItem" id="file" href="#">Others</div>
+            </div>
+          </div>
+
+             <div id="link1" class="dItem" href="#">Job
+            <!--  Inside Dropdown -->
+            <div class="dropdown-two">
+             <div class="dItem" id="file" href="#">EEE</div>
+			  <div class="dItem" id="file" href="#">CSE</div>
+			  <div class="dItem" id="file" href="#">Law</div>
+			  <div class="dItem" id="file" href="#">Business</div>
+			  <div class="dItem" id="file" href="#">Pharmacy</div>
+			  <div class="dItem" id="file" href="#">English</div>
+                <div class="dItem" id="file" href="#">Architecture</div>
+			  <div class="dItem" id="file" href="#">Civil</div>
+                <div class="dItem" id="file" href="#">Others</div>
+            </div>
+          </div>
+
+             <div id="link1" class="dItem" href="#">Electronics
+            <!--  Inside Dropdown -->
+            <div class="dropdown-two">
+             <div class="dItem" id="file" href="#">Mobile</div>
+			  <div class="dItem" id="file" href="#">Mobile Accessories </div>
+			  <div class="dItem" id="file" href="#">Computer & laptop</div>
+			  <div class="dItem" id="file" href="#">Computer & laptop Accessories</div>
+			  <div class="dItem" id="file" href="#">Camera & Camera Accessories</div>
+			  <div class="dItem" id="file" href="#">Other Electronics</div>
+
+            </div>
+          </div>
+
+
+
+          <div class="dItem" href="#">Services</div>
+          <div class="dItem" href="#">Education</div>
+
+
+
+
+            <div class="dItem" href="#">Accommodation</div>
+            <div class="dItem" href="#">Tution</div>
+            <div class="dItem" href="#">Others+</div>
+        </div>
+      </div>
+
+</div>
 
 
 
