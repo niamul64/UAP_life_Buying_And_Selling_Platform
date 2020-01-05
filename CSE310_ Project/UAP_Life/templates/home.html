@@ -20,30 +20,29 @@
         
             body {font-family: Arial, Helvetica, sans-serif;}
 
-/* Full-width input fields */
-input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
+        /* Full-width input fields */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
 
-/* Set a style for all buttons */
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
+        /* Set a style for all buttons */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
         }
         button:hover {
             opacity: 0.8;
         }
-
         /* Extra styles for the cancel button */
         .cancelbtn {
             width: auto;
@@ -106,7 +105,7 @@ button {
             background-color: #fefefe;
             margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
             border: 1px solid #888;
-            width: 30%; /* Could be more or less, depending on screen size */
+            width: 40%; /* Could be more or less, depending on screen size */
         }
 
         /* The Close Button (x) */
@@ -151,11 +150,22 @@ button {
                 width: 100%;
         }
         }
+
+        /* Our services Deatils */
+        .text-block {
+                position: absolute;
+                bottom: 190px;
+                right: 220px;
+                background-color:none;
+                color: rgb(0, 0, 0);
+                padding-left: 220px;
+                padding-right: 220px;
+            }
     </style>
 
     <!-- HomePage Logo part is here-->
     <a href="home.html">
-        <img src="logo.png" alt="HTML tutorial" style="width:400px;height:200px;border:0;">
+        <img src="logo.png" alt="HTML tutorial" style="width:245px;height:135px;border:0;">
     </a>
 
     <!-- HomePage sign in & sign up button-->
@@ -165,7 +175,7 @@ button {
             .button {
                 float:right;
                 border-radius: 4px;
-                background-color: #31aa37;
+                background-color: #15e66c;
                 border: none;
                 color: #FFFFFF;
                 text-align: center;
@@ -261,14 +271,14 @@ button {
                     <label for="psw"><b>Confirm Your Password</b></label>
                     <input type="password" placeholder="Re-Enter Password" name="psw" required>
                 
-                    <label for="psw"><b>Email</b></label>
+                    <label for="email"><b>Email</b></label>
                     <input type="email" placeholder="only @uap-bd.edu" name="email" required>
                         
                     <button type="submit">Sign Up</button>
                     </div>
                 
                     <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                    <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
                     </div>
                 </form>
             </div>
@@ -276,7 +286,7 @@ button {
             <script>
             // Get the modal
             var modal = document.getElementById('id01');
-            
+            var modal = document.getElementById('id02');
             // When the user clicks anywhere outside of the modal, close it
             window.onclick = function(event) {
                 if (event.target == modal) {
@@ -284,23 +294,33 @@ button {
                 }
             }
             </script>
-
             <script>
             // Get the modal
             var modal = document.getElementById('id02');
-
             // When the user clicks anywhere outside of the modal, close it
             window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
+                if (event.target == modal2) {
+                    modal2.style.display = "none";
                 }
             }
             </script>
 
-            <button class="button" onclick="document.getElementById('id01').style.display='block'" style="width:auto; height: align-self"><span>Sign In</span></button>
-            <button class="button" onclick="document.getElementById('id02').style.display='block'" style="width:auto;"><span>Sign Up</span></button>
-
+        <button class="button" onclick="document.getElementById('id01').style.display='block'" style="width:auto; height: align-self"><span>Sign In</span></button>
+        <button class="button" onclick="document.getElementById('id02').style.display='block'" style="width:auto; height: align-self"><span>Sign Up</span></button>
     </body>
+
+        <!-- Our Services Details Part-->
+
+        <div class="text-block">
+            <h1><img src="os4.png" height="120px"></h>
+            <ul class="list-group" >
+                <li class="list-group-item">Buy & Sell Platform</li>
+                <li class="list-group-item">Questions Bank</li>
+                <li class="list-group-item">Post Your Add for Product Buy & Sell</li>
+                <li class="list-group-item">Student Accomodation Services</li>
+                <li class="list-group-item">Promotion Services for Any Program or Event</li>
+            </ul>
+        </div>
 
 </body>
 </html>
