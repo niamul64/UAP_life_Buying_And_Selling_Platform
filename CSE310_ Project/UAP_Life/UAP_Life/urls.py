@@ -21,4 +21,7 @@ urlpatterns = [
     path('', views.Home_Page),
     path('admin/', admin.site.urls),
     path('Main/', views.Main_Page),
+    path('Main/post_ad/',views.post_ad),
+    path('Main/post_ad/post_ad2',views.post_ad2),
+
 ]
