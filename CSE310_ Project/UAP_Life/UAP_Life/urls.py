@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('Main/', views.Main_Page),
     path('Main/post_ad/',views.post_ad),
+    path('Main/questionbank_first_page/',views.question_bank),
     path('Main/post_ad/post_ad2',views.post_ad2),
 
 ]
