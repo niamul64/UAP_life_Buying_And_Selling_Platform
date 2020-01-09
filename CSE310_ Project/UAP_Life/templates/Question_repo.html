@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body style="background-color:#cef5e9">
+   
+    <h2>Find your Question File.</h2>
+       
+    <form action="question_search_result.html" method="GET">
+    
+        <p>Year</p>
+        <select name="year" id="year">
+                <option value="2000">2000
+                </option>
+                <option value="2001">2001</option>
+                <option value="2002">2002</option>
+                <option value="2003">2003</option>
+                <option value="2004">2004</option>
+                <option value="2005">2005</option>
+                <option value="2006">2006</option>
+                <option value="2007">2007</option>
+              
+            </select>
+     <p>Semester</p>
+     <select name="sem" id="semester" required>
+         <option value="1.1">1.1
+         </option>
+         <option value="1.2">1.2</option>
+         <option value="2.1">2.1</option>
+         <option value="2.2">2.2</option>
+         <option value="3.1">3.1</option>
+         <option value="3.2">3.2</option>
+         <option value="4.1">4.1</option>
+         <option value="4.2">4.2</option>
+       
+     </select>
+     <p>Exam Type</p>
+     <select name="xmtype" id="xm" required>
+            <option value="ct">CT</option>
+         <option value="mid">Mid</option>
+        
+         <option value="Final">Final</option>
+
+     </select>
+
+     <p></p>
+         <input type="submit" value="Search Repository">
+    </form>
+</body>
+</html>
