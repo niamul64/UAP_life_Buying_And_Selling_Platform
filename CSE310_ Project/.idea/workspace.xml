@@ -4,8 +4,7 @@
     <list default="true" id="1da900a4-c57b-4a83-b5b8-1855191a107b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UAP_Life/UAP_Life/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/UAP_Life/UAP_Life/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UAP_Life/UAP_Life/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/UAP_Life/UAP_Life/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UAP_Life/templates/main_home_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/UAP_Life/templates/main_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UAP_Life/templates/main_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/UAP_Life/templates/main_page.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +27,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="H:/Django practice UAP Life project/practice before up in uap life" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
