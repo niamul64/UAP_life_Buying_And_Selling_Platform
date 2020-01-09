@@ -23,7 +23,7 @@ urlpatterns = [
     path('Main.html/', views.Main_Page),
     path('Main.html/post_ad.html/',views.post_ad),
     path('Main.html/questionbank_first_page.html/',views.question_bank),
-    Path('Main.html/questionbank_first_page.html/submit_question_page.html'),
+
     path('Main.html/post_ad.html/post_ad2.html',views.post_ad2),
 
 ]

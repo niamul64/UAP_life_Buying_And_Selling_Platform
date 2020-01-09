@@ -12,3 +12,5 @@ def post_ad2(request):
     return render(request, 'post_ad_2.html')
 def question_bank(request):
     return render(request,'questionbank_first_page.html')
+def submit_question(request):
+    return render(request,'submit_question_page.html')
