@@ -12,6 +12,7 @@
             background-attachment: fixed;
             background-size: 100% 100%;
             max-width:100%;height:auto;
+			font-family: Arial, Helvetica, sans-serif;
             }
 
       </style>
@@ -370,6 +371,7 @@ body {
 
 .timeline{
 margin-top:30px;
+
 }
 
 /* The actual timeline (the vertical ruler) */
@@ -391,6 +393,9 @@ margin-top:30px;
   background-color: inherit;
   width: 60%;
   margin-top:1px;
+    -moz-box-shadow: 10px 10px 43px #000000;
+-webkit-box-shadow: 10px 10px 43px #000000;
+box-shadow: 10px 10px 43px #000000;
 
 }
 
@@ -406,6 +411,7 @@ margin-top:30px;
   top: 15px;
   border-radius: 50%;
   z-index: 1;
+ 
 }
 
 /* Place the container to the left */
@@ -427,9 +433,8 @@ margin-top:30px;
   width: 0;
   z-index: 1;
   right: 30px;
-  border: medium solid white;
-  border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent white;
+   
+  
 }
 
 
@@ -446,6 +451,7 @@ margin-top:30px;
   background-color: white;
   position: relative;
   border-radius: 6px;
+
 }
 
 /* Media queries - Responsive timeline on screens less than 600px wide */
@@ -513,10 +519,45 @@ margin:5px;
 
 
 
+<style>
+
+.Top_most_container{
+
+color:#fff;
+padding:10px;
+border-radius: 8px;
+z-index: 1;
+position: -webkit-sticky; 
+position: sticky;
+top: 0;
+  
+ 
+
+-moz-box-shadow:inset -4px -1px 75px #a8a8a8;
+-webkit-box-shadow:inset -4px -1px 75px #a8a8a8;
+box-shadow:inset -4px -1px 75px #a8a8a8;
+
+
+
+background: rgba(242,246,248,1);
+background: -moz-linear-gradient(left, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 32%, rgba(216,225,231,1) 44%, rgba(224,239,249,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(242,246,248,1)), color-stop(32%, rgba(216,225,231,1)), color-stop(44%, rgba(216,225,231,1)), color-stop(100%, rgba(224,239,249,1)));
+background: -webkit-linear-gradient(left, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 32%, rgba(216,225,231,1) 44%, rgba(224,239,249,1) 100%);
+background: -o-linear-gradient(left, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 32%, rgba(216,225,231,1) 44%, rgba(224,239,249,1) 100%);
+background: -ms-linear-gradient(left, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 32%, rgba(216,225,231,1) 44%, rgba(224,239,249,1) 100%);
+background: linear-gradient(to right, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 32%, rgba(216,225,231,1) 44%, rgba(224,239,249,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#e0eff9', GradientType=1 );
+
+
+}
+
+</style>
+
+
 </head>
 <body>
 
-
+<header class="Top_most_container">
 <img class="ima" src="small.png" alt="HTML tutorial" style="width:200px;height:100px;border:0;">
 
 
@@ -539,9 +580,10 @@ margin:5px;
 </div>
 
 
-
+<div class="clear"></div>
 
 <div class="cat">
+
 <a href="questionbank_first_page.html/">
 <button class="button_QBANK" onclick="document.getElementById('idUAP QUESTION BANK').style.display='block'" style="width:auto; height: align-self">
     <span>UAP QUESTION BANK</span>
@@ -637,9 +679,9 @@ margin:5px;
 </div>
 
 
+</header>
 
-
-
+<div class="clear"></div>
 
 
 
