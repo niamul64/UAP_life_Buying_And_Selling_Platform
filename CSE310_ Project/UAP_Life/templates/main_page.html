@@ -21,41 +21,58 @@
   <style>
 /* Style the links inside the navigation bar */
 
-.topnav a {
+
+
+
+
+
+
+
+
+
+
+
+.search_op a {
+  border-radius: 4px;
   float: right;
   display: block;
   color: black;
   text-align: center;
-  padding: 6px;
-  font-size: 17px;
-  right: 20px;
+  padding: 5px;
+  font-size: 18px;
+  right: 40px;
+  margin-top: 10px;
+  margin-left: 0px;
 }
 
 /* Change the color of links on hover */
-.topnav a:hover {
+.search_op a:hover {
   background-color: #0568B0;
   color: black;
 }
 
 /* Style the "active" element to highlight the current page */
-.topnav a.active {
+.search_op a.search_button {
   background-color: #0568B0;
   color: white;
+  height:40px;
+  
 }
 
 /* Style the search box inside the navigation bar */
-.topnav input[type=text] {
+.search_op input[type=text] {
   float: right;
   padding: 6px;
   border: none;
 
-
-  font-size: 17px;
+  margin-top: 14px;
+  margin-left: 0px;
+  font-size: 19px;
 }
 
 /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
 @media screen and (max-width: 900px) {
-  .topnav a, .topnav input[type=text] {
+  .search_op a, .search_op input[type=text] {
     float: right;
 
     text-align: left;
@@ -63,7 +80,7 @@
     margin-left:20px;
 
   }
-  .topnav input[type=text] {
+  .search_op input[type=text] {
     border: 1px solid #ccc;
   }
 }
@@ -75,18 +92,21 @@
 
             .button {
                 float:right;
-                border-radius: 2px;
+              
                 background-color: #31aa37;
                 border: none;
                 color: #FFFFFF;
                 text-align: center;
-                font-size: 22px;
-                padding: 20px;
-                width: 130px;
+                font-size: 16px;
                 transition: all 0.5s;
                 cursor: pointer;
-                margin: 5px;
-
+             
+				
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: 4px;
+  margin-right: 4px;
                 }
             .button span {
                 cursor: pointer;
@@ -128,12 +148,29 @@
                 border: none;
                 color: #FFFFF;
                 text-align: center;
-                font-size: 22px;
-                padding: 20px;
-                width: 130px;
+          
+       
+       
                 transition: all 0.5s;
                 cursor: pointer;
-                margin: 5px;
+          
+				
+			
+              
+               
+                
+                font-size: 16px;
+                
+             
+				
+
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: 4px;
+  margin-right: 4px;
+				
+				
+				
 
                 }
             .button1 span {
@@ -239,14 +276,28 @@
 }
 
 .dropdown .dropbtn {
+
   background-color: #4CAF50;
   color: white;
-  padding: 16px;
-  font-size: 16px;
+ 
+
   border: none;
   cursor: pointer;
   margin-top: 30px;
   margin-left: 5px;
+              
+  font-size: 16px;			
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: 4px;
+  margin-right: 4px;
+  
+  
+  
+  
+  
+  
 }
 
 
@@ -308,25 +359,52 @@
 
 
 	 .button_QBANK {
+
                 border-radius: 2px;
                 background-color: #4CAF50;
                 border: none;
                 color: white;
                 text-align: center;
-                padding: 16px;
+
                 font-size: 16px;
 
                 width: 130px;
                 transition: all 0.5s;
                 cursor: pointer;
-                margin-top: 30px;
-                margin-left: 5px;
+                
+				      
+       
+             
+                
+           
+                
+             
+				
+
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: 4px;
+  margin-right: 4px;
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
                 }
+				
+				
             .button_QBANK span {
                 cursor: pointer;
                 display: inline-block;
                 position: relative;
                 transition: 0.5s;
+
                 }
 
             .button_QBANK span:after {
@@ -348,7 +426,7 @@
                 }
 
 			.cat{
-
+			
 			display:inline;
 			margin-top:5px;
 			}
@@ -401,8 +479,8 @@ box-shadow: 10px 10px 43px #000000;
 
 /* The circles on the timeline */
 .container::after {
-  content: '';
-  position: absolute;
+  
+  
   width: 25px;
   height: 25px;
   right: -17px;
@@ -503,9 +581,12 @@ margin:5px;
     .promo{
    float:right;
    margin-top:100px;
+
+   
     }
 
 .content_for_promo {
+
   padding: 200px 80px;
   background-color: #D4D4D4;
   position: relative;
@@ -524,7 +605,7 @@ margin:5px;
 .Top_most_container{
 
 color:#fff;
-padding:10px;
+padding:4px;
 border-radius: 8px;
 z-index: 1;
 position: -webkit-sticky; 
@@ -557,10 +638,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', end
 </head>
 <body>
 
-<header class="Top_most_container">
-<img class="ima" src="small.png" alt="HTML tutorial" style="width:200px;height:100px;border:0;">
+<div class="Top_most_container">
 
+<img class="ima" src="small.png" alt="HTML tutorial" style="width:120px;height:60px;border:0;">
 
+<div class="search_op">
+  <a class="search_button" href="">Search</a>
+  <input type="text" placeholder="What are you looking for?">
+</div>
 
 
 <a href="post_ad.html/">
@@ -573,15 +658,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', end
 
 <button class="button" onclick="document.getElementById('idMy Profile').style.display='block'" style="width:auto; height: align-self"><span>My Profile</span></button>
 
-<div class="clear"></div>
-<div class="topnav">
-  <a class="active" href="">Search</a>
-  <input type="text" placeholder="What are you looking for?">
-</div>
+
+
+
 
 
 <div class="clear"></div>
-
 <div class="cat">
 
 <a href="questionbank_first_page.html/">
@@ -589,6 +671,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', end
     <span>UAP QUESTION BANK</span>
 </button>
 </a >
+
+
 
 
       <div class="dropdown">
@@ -672,6 +756,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', end
 
             <div class="dItem" href="#">Accommodation</div>
             <div class="dItem" href="#">Tution</div>
+			<div class="dItem" href="#">Borrow Something</div>
             <div class="dItem" href="#">Others+</div>
         </div>
       </div>
@@ -679,13 +764,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', end
 </div>
 
 
-</header>
+</div>
 
 <div class="clear"></div>
 
 
 
-<ul class="promo">
+<ul class="promo" >
   <div class="event">
     <div class="content_for_promo">
 
