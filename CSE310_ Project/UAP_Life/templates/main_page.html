@@ -1,846 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Main page</title>
-     <style>
-            body {
-            background-image: url('homebg.jpg');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: 100% 100%;
-            max-width:100%;height:auto;
-			font-family: Arial, Helvetica, sans-serif;
-            }
-
-      </style>
-
-
-  <style>
-/* Style the links inside the navigation bar */
-
-
-
-
-
-
-
-
-
-
-
-
-.search_op a {
-  border-radius: 4px;
-  float: right;
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 5px;
-  font-size: 18px;
-  right: 40px;
-  margin-top: 10px;
-  margin-left: 0px;
-}
-
-/* Change the color of links on hover */
-.search_op a:hover {
-  background-color: #0568B0;
-  color: black;
-}
-
-/* Style the "active" element to highlight the current page */
-.search_op a.search_button {
-  background-color: #0568B0;
-  color: white;
-  height:40px;
-  
-}
-
-/* Style the search box inside the navigation bar */
-.search_op input[type=text] {
-  float: right;
-  padding: 6px;
-  border: none;
-
-  margin-top: 14px;
-  margin-left: 0px;
-  font-size: 19px;
-}
-
-/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
-@media screen and (max-width: 900px) {
-  .search_op a, .search_op input[type=text] {
-    float: right;
-
-    text-align: left;
-    width: 100%;
-    margin-left:20px;
-
-  }
-  .search_op input[type=text] {
-    border: 1px solid #ccc;
-  }
-}
-
-   </style>
-
-
-        <style>
-
-            .button {
-                float:right;
-              
-                background-color: #31aa37;
-                border: none;
-                color: #FFFFFF;
-                text-align: center;
-                font-size: 16px;
-                transition: all 0.5s;
-                cursor: pointer;
-             
-				
-  border-radius: 4px;
-  padding: 10px;
-  margin-top: 10px;
-  margin-left: 4px;
-  margin-right: 4px;
-                }
-            .button span {
-                cursor: pointer;
-                display: inline-block;
-                position: relative;
-                transition: 0.5s;
-                }
-
-            .button span:after {
-                content: '\00bb';
-                position: absolute;
-                opacity: 0;
-                top: 0;
-                right: -20px;
-                transition: 0.5s;
-                }
-
-            .button:hover span {
-                padding-right: 25px;
-                }
-
-            .button:hover span:after {
-                opacity: 1;
-                right: 0;
-                }
-
-
-
-
-
-
-
-
-
-                .button1 {
-                float:right;
-                border-radius: 35px;
-                background-color: #EEBD10;
-                border: none;
-                color: #FFFFF;
-                text-align: center;
-          
-       
-       
-                transition: all 0.5s;
-                cursor: pointer;
-          
-				
-			
-              
-               
-                
-                font-size: 16px;
-                
-             
-				
-
-  padding: 10px;
-  margin-top: 10px;
-  margin-left: 4px;
-  margin-right: 4px;
-				
-				
-				
-
-                }
-            .button1 span {
-                cursor: pointer;
-                display: inline-block;
-                position: relative;
-                transition: 0.5s;
-                }
-
-            .button1 span:after {
-                content: '\00bb';
-                position: absolute;
-                opacity: 0;
-                top: 0;
-                right: -20px;
-                transition: 0.5s;
-                }
-
-            .button1:hover span {
-                padding-right: 25px;
-                }
-
-            .button1:hover span:after {
-                opacity: 1;
-                right: 0;
-                }
-
-
-
-
-
-
-
-            .ima{
-            float:left;
-            }
-
-            .clear{
-            clear:left;
-            }
-
-
-        </style>
-
-
-
-
-
-<style>
-
-
-.Show_AD{
-                float:right;
-                border-radius: 40px;
-                background-color: #F70C0C;
-                border: none;
-                color: #FFFF;
-                text-align: center;
-                font-size: 13px;
-                padding: 10px;
-                width: 130px;
-                transition: all 0.5s;
-                cursor: pointer;
-
-
-                }
-            .Show_AD span {
-                cursor: pointer;
-                display: inline-block;
-                position: relative;
-                transition: 0.5s;
-                }
-
-            .Show_AD span:after {
-                content: '\00bb';
-                position: absolute;
-                opacity: 0;
-                top: 0;
-                right: -20px;
-                transition: 0.5s;
-                }
-
-            .Show_AD:hover span {
-                padding-right: 25px;
-                }
-
-            .Show_AD:hover span:after {
-                opacity: 1;
-                right: 0;
-                }
-
-
-
-</style>
-
-<style>
-    /* Style The Dropdown Button */
-
-.dropdown {
-    float: left;
-    position: relative;
-      z-index:10;
-}
-
-.dropdown .dropbtn {
-
-  background-color: #4CAF50;
-  color: white;
- 
-
-  border: none;
-  cursor: pointer;
-  margin-top: 30px;
-  margin-left: 5px;
-              
-  font-size: 16px;			
-  border-radius: 4px;
-  padding: 10px;
-  margin-top: 10px;
-  margin-left: 4px;
-  margin-right: 4px;
-  
-  
-  
-  
-  
-  
-}
-
-
-
-.dropdown-one {
-  cursor: pointer;
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-.dropdown-two {
-  cursor: pointer;
-  display: none;
-  position: absolute;
-  left: 160px;
-  top: 0px;
-  min-width: 160px;
-  background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-.dropdown:hover .dropdown-one, #link1:hover > .dropdown-two {
-  display: block;
-}
-
-.dropdown-one .dItem {
-    color: black;
-    padding: 12px 16px;
-    display: block;
-    text-align: left;
-}
-
-.dropdown-one .dItem:hover, .dropdown-two a:hover {
-    background-color: #ddd;
-}
-
-
-
-
-
-
-
-
-
-
-
-</style>
-
-
-
-
-
-<style>
-
-
-
-
-	 .button_QBANK {
-
-                border-radius: 2px;
-                background-color: #4CAF50;
-                border: none;
-                color: white;
-                text-align: center;
-
-                font-size: 16px;
-
-                width: 130px;
-                transition: all 0.5s;
-                cursor: pointer;
-                
-				      
-       
-             
-                
-           
-                
-             
-				
-
-  padding: 10px;
-  margin-top: 10px;
-  margin-left: 4px;
-  margin-right: 4px;
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-                }
-				
-				
-            .button_QBANK span {
-                cursor: pointer;
-                display: inline-block;
-                position: relative;
-                transition: 0.5s;
-
-                }
-
-            .button_QBANK span:after {
-                content: '\00bb';
-                position: absolute;
-                opacity: 0;
-                top: 0;
-                right: -20px;
-                transition: 0.5s;
-                }
-
-            .button_QBANK:hover span {
-                padding-right: 25px;
-                }
-
-            .button_QBANK:hover span:after {
-                opacity: 1;
-                right: 0;
-                }
-
-			.cat{
-			
-			display:inline;
-			margin-top:5px;
-			}
-
-	</style>
-
-
-
-<style>
-* {
-  box-sizing: border-box;
-
-}
-
-body {
-  background-color: #F5F5F5;
-
-  font-family: Helvetica, sans-serif;
-}
-
-.timeline{
-margin-top:30px;
-
-}
-
-/* The actual timeline (the vertical ruler) */
-.timeline::after {
-  content: '';
-  position: absolute;
-  width: 0px;
-  background-color: white;
-  top: 0;
-  bottom: 0;
-  left: 0%;
-  margin-left: -50px;
-}
-
-/* Container around content */
-.container {
-  padding: 10px 40px;
-  position: relative;
-  background-color: inherit;
-  width: 60%;
-  margin-top:1px;
-    -moz-box-shadow: 10px 10px 43px #000000;
--webkit-box-shadow: 10px 10px 43px #000000;
-box-shadow: 10px 10px 43px #000000;
-
-}
-
-/* The circles on the timeline */
-.container::after {
-  
-  
-  width: 25px;
-  height: 25px;
-  right: -17px;
-  background-color: white;
-  border: 4px solid #FF9F55;
-  top: 15px;
-  border-radius: 50%;
-  z-index: 1;
- 
-}
-
-/* Place the container to the left */
-.left {
-  left: 0;
-}
-
-/* Place the container to the right */
-.right {
-  left: 0;
-}
-
-/* Add arrows to the left container (pointing right) */
-.left::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  right: 30px;
-   
-  
-}
-
-
-
-
-/* Fix the circle for containers on the right side */
-.right::after {
-  left: 0px;
-}
-
-/* The actual content */
-.content {
-  padding: 20px 30px;
-  background-color: white;
-  position: relative;
-  border-radius: 6px;
-
-}
-
-/* Media queries - Responsive timeline on screens less than 600px wide */
-@media screen and (max-width: 600px) {
-  /* Place the timelime to the left */
-  .timeline::after {
-  left: 0;
-  }
-
-  /* Full-width containers */
-  .container {
-  width: 100%;
-  padding-left: 70px;
-  padding-right: 25px;
-  }
-
-  /* Make sure that all arrows are pointing leftwards */
-  .container::before {
-  left: 0px;
-  border: medium solid white;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent white transparent transparent;
-  }
-
-  /* Make sure all circles are at the same spot */
-  .left::after {
-  left: 0;
-  }
-
-  /* Make all right containers behave like the left ones */
-
-}
-
-.adIma{
-float:left;
-}
-
-.demo{
-float:left;
-margin:5px;
-}
-
-</style>
-
-
-<style>
-
-
-    .promo{
-   float:right;
-   margin-top:100px;
-
-   
-    }
-
-.content_for_promo {
-
-  padding: 200px 80px;
-  background-color: #D4D4D4;
-  position: relative;
-  border-radius: 6px;
-  margin-top:30px;
-}
-
-
-</style>
-
-
-
-
-<style>
-
-.Top_most_container{
-
-color:#fff;
-padding:4px;
-border-radius: 8px;
-z-index: 1;
-position: -webkit-sticky; 
-position: sticky;
-top: 0;
-  
- 
-
--moz-box-shadow:inset -4px -1px 75px #a8a8a8;
--webkit-box-shadow:inset -4px -1px 75px #a8a8a8;
-box-shadow:inset -4px -1px 75px #a8a8a8;
-
-
-
-background: rgba(242,246,248,1);
-background: -moz-linear-gradient(left, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 32%, rgba(216,225,231,1) 44%, rgba(224,239,249,1) 100%);
-background: -webkit-gradient(left top, right top, color-stop(0%, rgba(242,246,248,1)), color-stop(32%, rgba(216,225,231,1)), color-stop(44%, rgba(216,225,231,1)), color-stop(100%, rgba(224,239,249,1)));
-background: -webkit-linear-gradient(left, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 32%, rgba(216,225,231,1) 44%, rgba(224,239,249,1) 100%);
-background: -o-linear-gradient(left, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 32%, rgba(216,225,231,1) 44%, rgba(224,239,249,1) 100%);
-background: -ms-linear-gradient(left, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 32%, rgba(216,225,231,1) 44%, rgba(224,239,249,1) 100%);
-background: linear-gradient(to right, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 32%, rgba(216,225,231,1) 44%, rgba(224,239,249,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#e0eff9', GradientType=1 );
-
-
-}
-
-</style>
-
+    <link rel="stylesheet" type="text/css" href="static/style.css">
 
 </head>
+
 <body>
 
-<div class="Top_most_container">
+    <div class="Top_most_container">
+        <div>
+            <img class="ima" src="static/small.png" alt="HTML tutorial" style="width:120px;height:60px;border:0;">
 
-<img class="ima" src="small.png" alt="HTML tutorial" style="width:120px;height:60px;border:0;">
-
-<div class="search_op">
-  <a class="search_button" href="">Search</a>
-  <input type="text" placeholder="What are you looking for?">
-</div>
-
-
-<a href="post_ad.html/">
-<button class="button1" onclick="document.getElementById('idPost your AD').style.display='block'" style="width:auto; height: align-self"><span>Post Your AD</span></button>
-
-</a >
-<a href="home.html/">
-    <button class="button" onclick="document.getElementById('idLog out').style.display='block'" style="width:auto; height: align-self"><span>Log Out</span></button>
-</a >
-
-<button class="button" onclick="document.getElementById('idMy Profile').style.display='block'" style="width:auto; height: align-self"><span>My Profile</span></button>
+            <div class="search_op">
+                <a class="search_button" href="">Search</a>
+                <input type="text" placeholder="What are you looking for?">
+            </div>
 
 
+            <a href="post_ad.html/">
+                <button class="button1" onclick="document.getElementById('idPost your AD').style.display='block'" style="width:auto; height: align-self"><span>Post Your AD</span></button>
+
+            </a>
+            <a href="home.html/">
+                <button class="button" onclick="document.getElementById('idLog out').style.display='block'" style="width:auto; height: align-self"><span>Log Out</span></button>
+            </a>
+
+            <button class="button" onclick="document.getElementById('idMy Profile').style.display='block'" style="width:auto; height: align-self"><span>My Profile</span></button>
 
 
 
 
-<div class="clear"></div>
-<div class="cat">
 
-<a href="questionbank_first_page.html/">
-<button class="button_QBANK" onclick="document.getElementById('idUAP QUESTION BANK').style.display='block'" style="width:auto; height: align-self">
+
+            <div class="clear"></div>
+            <div class="cat">
+
+                <a href="questionbank_first_page.html/">
+                    <button class="button_QBANK" onclick="document.getElementById('idUAP QUESTION BANK').style.display='block'" style="width:auto; height: align-self">
     <span>UAP QUESTION BANK</span>
 </button>
-</a >
+                </a>
 
 
 
 
-      <div class="dropdown">
-        <div class="dropbtn">SEARCH BY DEPARTMENT</div>
+                <div class="dropdown1">
+                    <div class="dropbtn1">SEARCH BY DEPARTMENT</div>
 
-        <div class="dropdown-one">
-  <div class="dItem" href="#">All Departments</div>
-            <div class="dItem" href="#">EEE</div>
-            <div class="dItem" href="#">CSE</div>
-		    <div class="dItem" href="#">Civil</div>
-		    <div class="dItem" href="#">Architecture</div>
-			<div class="dItem" href="#">Business Administration</div>
-			<div class="dItem" href="#">English</div>
-			<div class="dItem" href="#">Pharmacy</div>
-			<div class="dItem" href="#">Law</div>
+                    <div class="dropdown-one1">
+                        <div class="dItem" href="#">All Departments</div>
+                        <div class="dItem" href="#">EEE</div>
+                        <div class="dItem" href="#">CSE</div>
+                        <div class="dItem" href="#">Civil</div>
+                        <div class="dItem" href="#">Architecture</div>
+                        <div class="dItem" href="#">Business Administration</div>
+                        <div class="dItem" href="#">English</div>
+                        <div class="dItem" href="#">Pharmacy</div>
+                        <div class="dItem" href="#">Law</div>
 
+
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="dropdown">
+                    <div class="dropbtn">SEARCHING CATEGORIES</div>
+
+                    <div class="dropdown-one">
+                        <div class="dItem" href="#">All Categories</div>
+                        <div id="link1" class="dItem" href="#">books
+                            <!--  Inside Dropdown -->
+                            <div class="dropdown-two">
+                                <div class="dItem" id="file" href="#">EEE</div>
+                                <div class="dItem" id="file" href="#">CSE</div>
+                                <div class="dItem" id="file" href="#">Law</div>
+                                <div class="dItem" id="file" href="#">Business</div>
+                                <div class="dItem" id="file" href="#">Pharmacy</div>
+                                <div class="dItem" id="file" href="#">English</div>
+                                <div class="dItem" id="file" href="#">History</div>
+                                <div class="dItem" id="file" href="#">Math</div>
+                                <div class="dItem" id="file" href="#">Civil</div>
+                                <div class="dItem" id="file" href="#">Others</div>
+                            </div>
+                        </div>
+
+                        <div id="link1" class="dItem" href="#">Job
+                            <!--  Inside Dropdown -->
+                            <div class="dropdown-two">
+                                <div class="dItem" id="file" href="#">EEE</div>
+                                <div class="dItem" id="file" href="#">CSE</div>
+                                <div class="dItem" id="file" href="#">Law</div>
+                                <div class="dItem" id="file" href="#">Business</div>
+                                <div class="dItem" id="file" href="#">Pharmacy</div>
+                                <div class="dItem" id="file" href="#">English</div>
+                                <div class="dItem" id="file" href="#">Architecture</div>
+                                <div class="dItem" id="file" href="#">Civil</div>
+                                <div class="dItem" id="file" href="#">Others</div>
+                            </div>
+                        </div>
+
+                        <div id="link1" class="dItem" href="#">Electronics
+                            <!--  Inside Dropdown -->
+                            <div class="dropdown-two">
+                                <div class="dItem" id="file" href="#">Mobile</div>
+                                <div class="dItem" id="file" href="#">Mobile Accessories </div>
+                                <div class="dItem" id="file" href="#">Computer & laptop</div>
+                                <div class="dItem" id="file" href="#">Computer & laptop Accessories</div>
+                                <div class="dItem" id="file" href="#">Camera & Camera Accessories</div>
+                                <div class="dItem" id="file" href="#">Other Electronics</div>
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="dItem" href="#">Services</div>
+                        <div class="dItem" href="#">Education</div>
+
+
+
+
+                        <div class="dItem" href="#">Accommodation</div>
+                        <div class="dItem" href="#">Tution</div>
+                        <div class="dItem" href="#">Borrow Something</div>
+                        <div class="dItem" href="#">Others+</div>
+                    </div>
+                </div>
+
+            </div>
 
         </div>
-      </div>
+    </div>
+    <!--  top mos container end -->
 
 
 
 
+    <div class="clear"></div>
 
-      <div class="dropdown">
-        <div class="dropbtn">SEARCHING CATEGORIES</div>
 
-        <div class="dropdown-one">
-            <div class="dItem" href="#">All Categories</div>
-          <div id="link1" class="dItem" href="#">books
-            <!--  Inside Dropdown -->
-            <div class="dropdown-two">
-             <div class="dItem" id="file" href="#">EEE</div>
-			  <div class="dItem" id="file" href="#">CSE</div>
-			  <div class="dItem" id="file" href="#">Law</div>
-			  <div class="dItem" id="file" href="#">Business</div>
-			  <div class="dItem" id="file" href="#">Pharmacy</div>
-			  <div class="dItem" id="file" href="#">English</div>
-			  <div class="dItem" id="file" href="#">History</div>
-			  <div class="dItem" id="file" href="#">Math</div>
-			  <div class="dItem" id="file" href="#">Civil</div>
-                <div class="dItem" id="file" href="#">Others</div>
+
+    <ul class="promo">
+        <div class="event">
+            <div class="content_for_promo">
+
+                <img class="demo" src="static/demo.jpg" alt="image" style="width:150px;height100px;border:0;">
             </div>
-          </div>
-
-             <div id="link1" class="dItem" href="#">Job
-            <!--  Inside Dropdown -->
-            <div class="dropdown-two">
-             <div class="dItem" id="file" href="#">EEE</div>
-			  <div class="dItem" id="file" href="#">CSE</div>
-			  <div class="dItem" id="file" href="#">Law</div>
-			  <div class="dItem" id="file" href="#">Business</div>
-			  <div class="dItem" id="file" href="#">Pharmacy</div>
-			  <div class="dItem" id="file" href="#">English</div>
-                <div class="dItem" id="file" href="#">Architecture</div>
-			  <div class="dItem" id="file" href="#">Civil</div>
-                <div class="dItem" id="file" href="#">Others</div>
-            </div>
-          </div>
-
-             <div id="link1" class="dItem" href="#">Electronics
-            <!--  Inside Dropdown -->
-            <div class="dropdown-two">
-             <div class="dItem" id="file" href="#">Mobile</div>
-			  <div class="dItem" id="file" href="#">Mobile Accessories </div>
-			  <div class="dItem" id="file" href="#">Computer & laptop</div>
-			  <div class="dItem" id="file" href="#">Computer & laptop Accessories</div>
-			  <div class="dItem" id="file" href="#">Camera & Camera Accessories</div>
-			  <div class="dItem" id="file" href="#">Other Electronics</div>
-
-            </div>
-          </div>
-
-
-
-          <div class="dItem" href="#">Services</div>
-          <div class="dItem" href="#">Education</div>
-
-
-
-
-            <div class="dItem" href="#">Accommodation</div>
-            <div class="dItem" href="#">Tution</div>
-			<div class="dItem" href="#">Borrow Something</div>
-            <div class="dItem" href="#">Others+</div>
         </div>
-      </div>
+        <div class="ADsence">
+            <div class="content_for_promo">
 
-</div>
-
-
-</div>
-
-<div class="clear"></div>
+                <img class="demo" src="static/demo.jpg" alt="image" style="width:150px;height100px;border:0;">
 
 
+            </div>
 
-<ul class="promo" >
-  <div class="event">
-    <div class="content_for_promo">
+    </ul>
 
-       <img class="demo" src="demo.jpg" alt="image" style="width:150px;height100px;border:0;">
+    <div class="timeline">
+        <div class="container left">
+            <div class="content">
+                <img class="demo" src="static/demo.jpg" alt="image" style="width:150px;height100px;border:0;">
+                <button class="Show_AD" onclick="document.getElementById('idShow_AD').style.display='block'" style="width:auto; height: align-self"><span>Show The AD</span></button>
+                <h2>Title</h2>
+                <p>Price: TK </p>
+
+            </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+                <img class="demo" src="static/demo.jpg" alt="image" style="width:150px;height100px;border:0;">
+                <button class="Show_AD" onclick="document.getElementById('idShow_AD').style.display='block'" style="width:auto; height: align-self"><span>Show The AD</span></button>
+                <h2>Title</h2>
+                <p>Price: TK </p>
+            </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+                <img class="demo" src="static/demo.jpg" alt="image" style="width:150px;height100px;border:0;">
+                <button class="Show_AD" onclick="document.getElementById('idShow_AD').style.display='block'" style="width:auto; height: align-self"><span>Show The AD</span></button>
+                <h2>Title</h2>
+                <p>Price: TK </p>
+            </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+                <img class="demo" src="static/demo.jpg" alt="image" style="width:150px;height100px;border:0;">
+                <button class="Show_AD" onclick="document.getElementById('idShow_AD').style.display='block'" style="width:auto; height: align-self"><span>Show The AD</span></button>
+                <h2>Title</h2>
+                <p>Price: TK </p>
+            </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+                <img class="demo" src="static/demo.jpg" alt="image" style="width:150px;height100px;border:0;">
+                <button class="Show_AD" onclick="document.getElementById('idShow_AD').style.display='block'" style="width:auto; height: align-self"><span>Show The AD</span></button>
+                <h2>Title</h2>
+                <p>Price: TK </p>
+            </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+                <img class="demo" src="static/demo.jpg" alt="image" style="width:150px;height100px;border:0;">
+                <button class="Show_AD" onclick="document.getElementById('idShow_AD').style.display='block'" style="width:auto; height: align-self"><span>Show The AD</span></button>
+                <h2>Title</h2>
+                <p>Price: TK </p>
+            </div>
+
+        </div>
     </div>
-  </div>
-  <div class="ADsence">
-    <div class="content_for_promo">
-
-       <img class="demo" src="demo.jpg" alt="image" style="width:150px;height100px;border:0;">
-
-
-    </div>
-
-</ul>
-
-<div class="timeline">
-  <div class="container left">
-    <div class="content">
-    <img class="demo" src="demo.jpg" alt="image" style="width:150px;height100px;border:0;">
-    <button class="Show_AD" onclick="document.getElementById('idShow_AD').style.display='block'" style="width:auto; height: align-self"><span>Show The AD</span></button>
-      <h2>Title</h2>
-      <p>Price: TK </p>
-
-    </div>
-  </div>
-  <div class="container left">
-    <div class="content">
-       <img class="demo" src="demo.jpg" alt="image" style="width:150px;height100px;border:0;">
-    <button class="Show_AD" onclick="document.getElementById('idShow_AD').style.display='block'" style="width:auto; height: align-self"><span>Show The AD</span></button>
-      <h2>Title</h2>
-      <p>Price: TK </p>
-    </div>
-  </div>
-  <div class="container left">
-    <div class="content">
-       <img class="demo" src="demo.jpg" alt="image" style="width:150px;height100px;border:0;">
-    <button class="Show_AD" onclick="document.getElementById('idShow_AD').style.display='block'" style="width:auto; height: align-self"><span>Show The AD</span></button>
-      <h2>Title</h2>
-      <p>Price: TK </p>
-    </div>
-  </div>
-  <div class="container left">
-    <div class="content">
-       <img class="demo" src="demo.jpg" alt="image" style="width:150px;height100px;border:0;">
-    <button class="Show_AD" onclick="document.getElementById('idShow_AD').style.display='block'" style="width:auto; height: align-self"><span>Show The AD</span></button>
-      <h2>Title</h2>
-      <p>Price: TK </p>
-    </div>
-  </div>
-  <div class="container left">
-    <div class="content">
-       <img class="demo" src="demo.jpg" alt="image" style="width:150px;height100px;border:0;">
-    <button class="Show_AD" onclick="document.getElementById('idShow_AD').style.display='block'" style="width:auto; height: align-self"><span>Show The AD</span></button>
-      <h2>Title</h2>
-      <p>Price: TK </p>
-    </div>
-  </div>
-  <div class="container left">
-    <div class="content">
-      <img class="demo" src="demo.jpg" alt="image" style="width:150px;height100px;border:0;">
-    <button class="Show_AD" onclick="document.getElementById('idShow_AD').style.display='block'" style="width:auto; height: align-self"><span>Show The AD</span></button>
-      <h2>Title</h2>
-      <p>Price: TK </p>
-    </div>
-
-  </div>
-</div>
-
-
 
 
 
@@ -849,4 +225,5 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', end
 
 
 </body>
+
 </html>
