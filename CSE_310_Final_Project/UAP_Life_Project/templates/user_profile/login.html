@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
-<p>Log in to you account!</p>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="jumbotron">
+    <h3 align="Left">
+        Log in
+    </h3>
+    <form  method="POST" >
+        {% csrf_token %}
+        Username :
+        <input type="text" name="username">
+    </br>
+        </br>
+        Password :
+        <input type="password" name="password">
+          </br>
+        </br>
+        <input type="submit" name="Log_in" value="Log in">
+    </form>
+</div>
+{% endblock %}

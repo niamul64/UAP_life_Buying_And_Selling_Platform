@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+### static file load koros nai ken hala @naimul ???
+### half hours laagse eita detect korte...
+
+{% load staticfiles%}
 <html lang="en">
 
 <head>
@@ -80,7 +84,7 @@
 
                         </li>
                         <li><a href="#"><span class="glyphicon glyphicon-user"></span> MY Profile</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Sign Out</a></li>
+                        <li><a href="{% url 'logout'%}"><span class="glyphicon glyphicon-log-in"></span>Sign Out</a></li>
 
                     </ul>
                 </div>
