@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-{% load staticfiles%}
+<!DOCTYPE html> {% load staticfiles%}
 <html lang="en">
 
 <head>
@@ -12,6 +11,29 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+    <style>
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $('.dropdown-submenu a.test').on("click", function(e) {
+                $(this).next('ul').toggle();
+                e.stopPropagation();
+                e.preventDefault();
+            });
+        });
+    </script>
+
+
+
 </head>
 
 <body>
@@ -19,7 +41,7 @@
     <nav class="navbar sticky-top navbar-expand-lg navbar-light fixed" style="background-color: #e3f2fd;">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">  <img src="{% static 'images/small_logo.png' %}" align="left" height="110" width=auto/></a>
+                <a class="navbar-brand" href="#"> <img src="{% static 'images/small_logo.png' %}" align="left" height="110" width=auto/></a>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -67,8 +89,60 @@
                     <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">All Categories</a></li>
-                                <li><a href="#">Books</a></li>
-                                <li><a href="#">Job</a></li>
+
+                                <li class="dropdown-submenu">
+                                    <a class="test" tabindex="-1" href="#">Books <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a tabindex="-1" href="#">CSE</a></li>
+                                        <li><a tabindex="-1" href="#">EEE</a></li>
+                                        <li><a tabindex="-1" href="#">Law</a></li>
+                                        <li><a tabindex="-1" href="#">Business</a></li>
+                                        <li><a tabindex="-1" href="#">Pharmacy</a></li>
+                                        <li><a tabindex="-1" href="#">English</a></li>
+                                        <li><a tabindex="-1" href="#">History</a></li>
+                                        <li><a tabindex="-1" href="#">Math</a></li>
+                                        <li><a tabindex="-1" href="#">Civil</a></li>
+                                        <li><a tabindex="-1" href="#">Architecture</a></li>
+                                        <li><a tabindex="-1" href="#">Others</a></li>
+
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-submenu">
+                                    <a class="test" tabindex="-1" href="#">JOB <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a tabindex="-1" href="#">CSE</a></li>
+                                        <li><a tabindex="-1" href="#">EEE</a></li>
+                                        <li><a tabindex="-1" href="#">Law</a></li>
+                                        <li><a tabindex="-1" href="#">Business</a></li>
+                                        <li><a tabindex="-1" href="#">Pharmacy</a></li>
+                                        <li><a tabindex="-1" href="#">English</a></li>
+                                        <li><a tabindex="-1" href="#">Architecture</a></li>
+                                        <li><a tabindex="-1" href="#">Bank</a></li>
+                                        <li><a tabindex="-1" href="#">Civil</a></li>
+                                        <li><a tabindex="-1" href="#">Others</a></li>
+
+                                    </ul>
+                                </li>
+
+                                <li class="dropdown-submenu">
+                                    <a class="test" tabindex="-1" href="#">Electronics <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a tabindex="-1" href="#">CSE</a></li>
+                                        <li><a tabindex="-1" href="#">EEE</a></li>
+                                        <li><a tabindex="-1" href="#">Law</a></li>
+                                        <li><a tabindex="-1" href="#">Business</a></li>
+                                        <li><a tabindex="-1" href="#">Pharmacy</a></li>
+                                        <li><a tabindex="-1" href="#">English</a></li>
+                                        <li><a tabindex="-1" href="#">Architecture</a></li>
+                                        <li><a tabindex="-1" href="#">Bank</a></li>
+                                        <li><a tabindex="-1" href="#">Civil</a></li>
+                                        <li><a tabindex="-1" href="#">Others</a></li>
+
+                                    </ul>
+                                </li>
+
+
                                 <li><a href="#">Electronics</a></li>
                                 <li><a href="#">Service & volunteer</a></li>
                                 <li><a href="#">Education/Course</a></li>
@@ -80,7 +154,7 @@
                             </ul>
 
                         </li>
-                        <li><a href="{% url 'user_profile' profile_id %}"><span class="glyphicon glyphicon-user"></span> MY Profile</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> MY Profile</a></li>
                         <li><a href="{% url 'logout'%}"><span class="glyphicon glyphicon-log-in"></span>Sign Out</a></li>
 
                     </ul>
@@ -89,9 +163,9 @@
         </div>
     </nav>
 
-<script>
-    alert("Welcome to homepage {{user.username}}");
-</script>
+    <script>
+        alert("Welcome to homepage {{user.username}}");
+    </script>
 </body>
 
 </html>
