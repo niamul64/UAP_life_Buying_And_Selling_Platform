@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-### static file load koros nai ken hala @naimul ???
-### half hours laagse eita detect korte...
-
 {% load staticfiles%}
 <html lang="en">
 
@@ -28,13 +25,13 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
             <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <a href="#"><button type="button" class="btn btn-warning" style="margin-top: 6px;">Post AD</button></a>
                         <a href="#"><button type="button" class="btn btn-success" style="margin-top: 6px;">UAP QUESTION BANK</button></a>
 
                     </ul>
-                    <form class="navbar-form navbar-left" action="/action_page.php">
+                    <form class="navbar-form navbar-left" action="#">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Search" name="search">
                             <div class="input-group-btn">
@@ -83,14 +80,18 @@
                             </ul>
 
                         </li>
-                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> MY Profile</a></li>
+                        <li><a href="{% url 'user_profile' profile_id %}"><span class="glyphicon glyphicon-user"></span> MY Profile</a></li>
                         <li><a href="{% url 'logout'%}"><span class="glyphicon glyphicon-log-in"></span>Sign Out</a></li>
 
                     </ul>
                 </div>
             </div>
+        </div>
     </nav>
 
+<script>
+    alert("Welcome to homepage {{user.username}}");
+</script>
 </body>
 
 </html>
