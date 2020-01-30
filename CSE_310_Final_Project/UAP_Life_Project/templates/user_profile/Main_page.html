@@ -1,4 +1,5 @@
-<!DOCTYPE html> {% load staticfiles%}
+<!DOCTYPE html>
+{% load staticfiles%}
 <html lang="en">
 
 <head>
@@ -41,7 +42,7 @@
     <nav class="navbar sticky-top navbar-expand-lg navbar-light fixed" style="background-color: #e3f2fd;">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#"> <img src="{% static 'images/small_logo.png' %}" align="left" height="110" width=auto/></a>
+               <img src="{% static 'images/logo.png' %}" align="left" height="150" width=auto/>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -153,7 +154,7 @@
                             </ul>
 
                         </li>
-                        <li style="font-size: 13px;"><a href="#"><span class="glyphicon glyphicon-user"></span> MY Profile</a></li>
+                        <li style="font-size: 13px;"><span class="glyphicon glyphicon-user"></span> MY Profile/li>
                         <li style="font-size: 13px;"><a href="{% url 'logout'%}"><span class="glyphicon glyphicon-log-in" style=" margin-right: 4px;"></span>Sign Out</a></li>
 
                     </ul>
