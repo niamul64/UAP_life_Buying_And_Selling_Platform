@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7a23b069-04f6-452c-813e-5c9795b8b9e1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UAP_Life_Project/static/images/Artboard 1@2x.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/UAP_Life_Project/templates/user_profile/Main_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/UAP_Life_Project/templates/user_profile/Main_page.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,7 +27,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="H:/Django practice UAP Life project/practice before sub/CSE_310_Final_Project" />
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RecentsManager">
