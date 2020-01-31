@@ -26,6 +26,73 @@
 
 
 
+    <style>
+        .dropdown {
+            float: left;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .dropdown .dropbtn {
+            background-color: rgb(56, 86, 168);
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 30px;
+            margin-left: 5px;
+            font-size: 14px;
+            border-radius: 4px;
+            padding: 4px;
+            margin-top: 11px;
+            margin-left: 4px;
+            margin-right: 4px;
+        }
+        
+        .dropdown-one {
+            cursor: pointer;
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+        
+        .dropdown-two {
+            cursor: pointer;
+            display: none;
+            position: absolute;
+            left: 160px;
+            top: 0px;
+            min-width: 160px;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+        
+        .dropdown:hover .dropdown-one,
+        #link1:hover>.dropdown-two {
+            display: block;
+        }
+        
+        .dropdown-one .dItem {
+            color: black;
+            padding: 12px 16px;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-one .dItem:hover,
+        .dropdown-two a:hover {
+            background-color: #ddd;
+        }
+    </style>
+
+
+
+
+
+
+
+
     <script>
         $(document).ready(function() {
             $('.dropdown-submenu a.test').on("click", function(e) {
@@ -69,95 +136,96 @@
                     </form>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown" style="font-size: 13px;">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">SEARCH BY DEPARTMENT
-                    <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">All Departments</a></li>
-                                <li><a href="#">EEE</a></li>
-                                <li><a href="#">CSE</a></li>
-                                <li><a href="#">Civil</a></li>
-                                <li><a href="#">Architecture</a></li>
-                                <li><a href="#">Business Administration</a></li>
-                                <li><a href="#">English</a></li>
-                                <li><a href="#">Pharmacy</a></li>
-                                <li><a href="#">Law</a></li>
+					
+                        <!--1nd drop down-->
+                        <div class="dropdown">
+                            <div class="dropbtn">SEARCH BY DEPARTMENT</div>
 
-                            </ul>
-
-                        </li>
-
-
+                            <div class="dropdown-one">
+                                <div class="dItem" href="#">All Departments</div>
+                                <div class="dItem" href="#">CSE</div>
+                                <div class="dItem" href="#">EEE</div>
+                                <div class="dItem" href="#">Civil</div>
+                                <div class="dItem" href="#">Architecture</div>
+                                <div class="dItem" href="#">Business Administration</div>
+                                <div class="dItem" href="#">English</div>
+                                <div class="dItem" href="#">Pharmacy</div>
+                                <div class="dItem" href="#">Law</div>
+                            </div>
+                        </div>
 
 
-                        <li class="dropdown" style="font-size: 13px;">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">SEARCHING CATEGORIES
-                    <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">All Categories</a></li>
-
-                                <li class="dropdown-submenu">
-                                    <a class="test" tabindex="-1" href="#">Books <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a tabindex="-1" href="#">CSE</a></li>
-                                        <li><a tabindex="-1" href="#">EEE</a></li>
-                                        <li><a tabindex="-1" href="#">Law</a></li>
-                                        <li><a tabindex="-1" href="#">Business</a></li>
-                                        <li><a tabindex="-1" href="#">Pharmacy</a></li>
-                                        <li><a tabindex="-1" href="#">English</a></li>
-                                        <li><a tabindex="-1" href="#">History</a></li>
-                                        <li><a tabindex="-1" href="#">Math</a></li>
-                                        <li><a tabindex="-1" href="#">Civil</a></li>
-                                        <li><a tabindex="-1" href="#">Architecture</a></li>
-                                        <li><a tabindex="-1" href="#">Others</a></li>
-
-                                    </ul>
-                                </li>
-
-                                <li class="dropdown-submenu">
-                                    <a class="test" tabindex="-1" href="#">JOB <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a tabindex="-1" href="#">CSE</a></li>
-                                        <li><a tabindex="-1" href="#">EEE</a></li>
-                                        <li><a tabindex="-1" href="#">Law</a></li>
-                                        <li><a tabindex="-1" href="#">Business</a></li>
-                                        <li><a tabindex="-1" href="#">Pharmacy</a></li>
-                                        <li><a tabindex="-1" href="#">English</a></li>
-                                        <li><a tabindex="-1" href="#">Architecture</a></li>
-                                        <li><a tabindex="-1" href="#">Bank</a></li>
-                                        <li><a tabindex="-1" href="#">Civil</a></li>
-                                        <li><a tabindex="-1" href="#">Others</a></li>
-
-                                    </ul>
-                                </li>
-
-                                <li class="dropdown-submenu">
-                                    <a class="test" tabindex="-1" href="#">Electronics <span class="caret" style=""></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a tabindex="-1" href="#">Mobile</a></li>
-                                        <li><a tabindex="-1" href="#">Mobile<br>Accessories</a></li>
-                                        <li><a tabindex="-1" href="#">Computer<br>& laptop</a></li>
-                                        <li><a tabindex="-1" href="#">Computer<br>& laptop<br>Accessories</a></li>
-                                        <li><a tabindex="-1" href="#">Camera<br>& Camera<br>Accessories</a></li>
-                                        <li><a tabindex="-1" href="#">Other<br>Electronics</a></li>
-
-
-                                    </ul>
-                                </li>
+                        <!--1nd drop down end-->
 
 
 
-                                <li><a href="#">Service<br>or volunteer</a></li>
-                                <li><a href="#">Education/Course</a></li>
-                                <li><a href="#">Accommodation</a></li>
-                                <li><a href="#">Tution</a></li>
-                                <li><a href="#">Borrow Something</a></li>
 
-                                <li><a href="#">Others+</a></li>
+                        <!--2nd drop down-->
+                        <div class="dropdown">
+                            <div class="dropbtn">SEARCHING CATEGORIES</div>
 
-                            </ul>
+                            <div class="dropdown-one">
+                                <div class="dItem" href="#">All Categories</div>
+                                <div id="link1" class="dItem" href="#">books
+                                    <!--  Inside Dropdown -->
+                                    <div class="dropdown-two">
+                                        <div class="dItem"  href="#">EEE</div>
+                                        <div class="dItem"  href="#">CSE</div>
+                                        <div class="dItem"  href="#">Law</div>
+                                        <div class="dItem"  href="#">Business</div>
+                                        <div class="dItem"  href="#">Pharmacy</div>
+                                        <div class="dItem"  href="#">English</div>
+                                        <div class="dItem"  href="#">History</div>
+                                        <div class="dItem"  href="#">Math</div>
+                                        <div class="dItem"  href="#">Civil</div>
+                                        <div class="dItem"  href="#">Others</div>
+                                    </div>
+                                </div>
 
-                        </li>
+                                <div id="link1" class="dItem" href="#">Job
+                                    <!--  Inside Dropdown -->
+                                    <div class="dropdown-two">
+                                        <div class="dItem"  href="#">EEE</div>
+                                        <div class="dItem" href="#">CSE</div>
+                                        <div class="dItem"  href="#">Law</div>
+                                        <div class="dItem"  href="#">Business</div>
+                                        <div class="dItem"  href="#">Pharmacy</div>
+                                        <div class="dItem"  href="#">English</div>
+                                        <div class="dItem"  href="#">Architecture</div>
+                                        <div class="dItem"  href="#">Civil</div>
+                                        <div class="dItem"  href="#">Others</div>
+                                    </div>
+                                </div>
+
+                                <div id="link1" class="dItem" href="#">Electronics
+                                    <!--  Inside Dropdown -->
+                                    <div class="dropdown-two">
+                                        <div class="dItem"  href="#">Mobile</div>
+                                        <div class="dItem"  href="#">Mobile Accessories </div>
+                                        <div class="dItem"  href="#">Computer & laptop</div>
+                                        <div class="dItem"  href="#">Computer & laptop Accessories</div>
+                                        <div class="dItem"  href="#">Camera & Camera Accessories</div>
+                                        <div class="dItem"  href="#">Other Electronics</div>
+
+                                    </div>
+                                </div>
+
+
+
+                                <div class="dItem" href="#">Service/volunteer</div>
+                                <div class="dItem" href="#">Education/Course</div>
+
+
+
+
+                                <div class="dItem" href="#">Accommodation</div>
+                                <div class="dItem" href="#">Tution</div>
+                                <div class="dItem" href="#">Borrow Something</div>
+                                <div class="dItem" href="#">Others+</div>
+                            </div>
+                        </div>
+                        <!--2nd drop down end-->
+                        
                         <li style="font-size: 13px;"><a href="#"><span class="glyphicon glyphicon-user"></span> MY Profile</a></li>
                         <li style="font-size: 13px;"><a href="{% url 'logout'%}"><span class="glyphicon glyphicon-log-in" style=" margin-right: 4px;"></span>Sign Out</a></li>
                     </ul>
