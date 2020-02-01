@@ -11,6 +11,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+    <style>
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+        }
+    </style>
 
 
 
@@ -79,6 +90,21 @@
 
 
 
+
+
+
+    <script>
+        $(document).ready(function() {
+            $('.dropdown-submenu a.test').on("click", function(e) {
+                $(this).next('ul').toggle();
+                e.stopPropagation();
+                e.preventDefault();
+            });
+        });
+    </script>
+
+
+
 </head>
 
 
@@ -110,25 +136,25 @@
                     </form>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <div style="z-index: 20;">
-                            <!--1nd drop down-->
-                            <div class="dropdown">
-                                <div class="dropbtn">SEARCH BY DEPARTMENT</div>
+					
+                        <!--1nd drop down-->
+                        <div class="dropdown">
+                            <div class="dropbtn">SEARCH BY DEPARTMENT</div>
 
-                                <div class="dropdown-one">
-                                    <div class="dItem" href="#">All Departments</div>
-                                    <div class="dItem" href="#">CSE</div>
-                                    <div class="dItem" href="#">EEE</div>
-                                    <div class="dItem" href="#">Civil</div>
-                                    <div class="dItem" href="#">Architecture</div>
-                                    <div class="dItem" href="#">Business Administration</div>
-                                    <div class="dItem" href="#">English</div>
-                                    <div class="dItem" href="#">Pharmacy</div>
-                                    <div class="dItem" href="#">Law</div>
-                                </div>
+                            <div class="dropdown-one">
+                                <div class="dItem" href="#">All Departments</div>
+                                <div class="dItem" href="#">CSE</div>
+                                <div class="dItem" href="#">EEE</div>
+                                <div class="dItem" href="#">Civil</div>
+                                <div class="dItem" href="#">Architecture</div>
+                                <div class="dItem" href="#">Business Administration</div>
+                                <div class="dItem" href="#">English</div>
+                                <div class="dItem" href="#">Pharmacy</div>
+                                <div class="dItem" href="#">Law</div>
                             </div>
-
                         </div>
+
+
                         <!--1nd drop down end-->
 
 
@@ -143,43 +169,43 @@
                                 <div id="link1" class="dItem" href="#">books
                                     <!--  Inside Dropdown -->
                                     <div class="dropdown-two">
-                                        <div class="dItem" href="#">EEE</div>
-                                        <div class="dItem" href="#">CSE</div>
-                                        <div class="dItem" href="#">Law</div>
-                                        <div class="dItem" href="#">Business</div>
-                                        <div class="dItem" href="#">Pharmacy</div>
-                                        <div class="dItem" href="#">English</div>
-                                        <div class="dItem" href="#">History</div>
-                                        <div class="dItem" href="#">Math</div>
-                                        <div class="dItem" href="#">Civil</div>
-                                        <div class="dItem" href="#">Others</div>
+                                        <div class="dItem"  href="#">EEE</div>
+                                        <div class="dItem"  href="#">CSE</div>
+                                        <div class="dItem"  href="#">Law</div>
+                                        <div class="dItem"  href="#">Business</div>
+                                        <div class="dItem"  href="#">Pharmacy</div>
+                                        <div class="dItem"  href="#">English</div>
+                                        <div class="dItem"  href="#">History</div>
+                                        <div class="dItem"  href="#">Math</div>
+                                        <div class="dItem"  href="#">Civil</div>
+                                        <div class="dItem"  href="#">Others</div>
                                     </div>
                                 </div>
 
                                 <div id="link1" class="dItem" href="#">Job
                                     <!--  Inside Dropdown -->
                                     <div class="dropdown-two">
-                                        <div class="dItem" href="#">EEE</div>
+                                        <div class="dItem"  href="#">EEE</div>
                                         <div class="dItem" href="#">CSE</div>
-                                        <div class="dItem" href="#">Law</div>
-                                        <div class="dItem" href="#">Business</div>
-                                        <div class="dItem" href="#">Pharmacy</div>
-                                        <div class="dItem" href="#">English</div>
-                                        <div class="dItem" href="#">Architecture</div>
-                                        <div class="dItem" href="#">Civil</div>
-                                        <div class="dItem" href="#">Others</div>
+                                        <div class="dItem"  href="#">Law</div>
+                                        <div class="dItem"  href="#">Business</div>
+                                        <div class="dItem"  href="#">Pharmacy</div>
+                                        <div class="dItem"  href="#">English</div>
+                                        <div class="dItem"  href="#">Architecture</div>
+                                        <div class="dItem"  href="#">Civil</div>
+                                        <div class="dItem"  href="#">Others</div>
                                     </div>
                                 </div>
 
                                 <div id="link1" class="dItem" href="#">Electronics
                                     <!--  Inside Dropdown -->
                                     <div class="dropdown-two">
-                                        <div class="dItem" href="#">Mobile</div>
-                                        <div class="dItem" href="#">Mobile Accessories </div>
-                                        <div class="dItem" href="#">Computer & laptop</div>
-                                        <div class="dItem" href="#">Computer & laptop Accessories</div>
-                                        <div class="dItem" href="#">Camera & Camera Accessories</div>
-                                        <div class="dItem" href="#">Other Electronics</div>
+                                        <div class="dItem"  href="#">Mobile</div>
+                                        <div class="dItem"  href="#">Mobile Accessories </div>
+                                        <div class="dItem"  href="#">Computer & laptop</div>
+                                        <div class="dItem"  href="#">Computer & laptop Accessories</div>
+                                        <div class="dItem"  href="#">Camera & Camera Accessories</div>
+                                        <div class="dItem"  href="#">Other Electronics</div>
 
                                     </div>
                                 </div>
@@ -199,7 +225,7 @@
                             </div>
                         </div>
                         <!--2nd drop down end-->
-
+                        
                         <li style="font-size: 13px;"><a href="#"><span class="glyphicon glyphicon-user"></span> MY Profile</a></li>
                         <li style="font-size: 13px;"><a href="{% url 'logout'%}"><span class="glyphicon glyphicon-log-in" style=" margin-right: 4px;"></span>Sign Out</a></li>
                     </ul>

@@ -1,83 +1,123 @@
-
-<!doctype html>
-{% load staticfiles%}
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.6">
-    <title>UAP_LIFE</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/cover/">
-
-    <!-- Bootstrap core CSS -->
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <!-- Favicons -->
-<link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">
-<link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
-<link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">
-<meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
-<meta name="theme-color" content="#563d7c">
-
-
+    <title>Welcome to UAP Life</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
+      @import "https://use.fontawesome.com/releases/v5.5.0/css/all.css";
+      body{
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background:linear-gradient(to left, rgba(164, 58, 235, 0), rgb(14, 238, 238));
+        background-size: cover;
+      }
+      .login-box{
+        width: 280px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        color: rgb(0, 0, 0);
+      }
+      .login-box h1{
+        float: left;
+        font-size: 40px;
+        border-bottom: 6px solid #000000;
+        margin-bottom: 50px;
+        padding: 13px 0;
+      }
+      .textbox{
+        width: 100%;
+        overflow: hidden;
+        font-size: 20px;
+        padding: 8px 0;
+        margin: 8px 0;
+        border-bottom: 1px solid #000000;
+      }
+      .textbox i{
+        width: 26px;
+        float: left;
+        text-align: center;
+      }
+      .textbox input{
+        border: none;
+        outline: none;
+        background: none;
+        color: rgb(0, 0, 0);
+        font-size: 18px;
+        width: 80%;
+        float: left;
+        margin: 0 10px;
+      }
+      .btn{
+        width: 100%;
+        background: none;
+        border: 2px solid #000000;
+        color: rgb(178, 5, 201);
+        text-shadow: black;
+        padding: 5px;
+        font-size: 18px;
+        cursor: pointer;
+        margin: 12px 0;
       }
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
+      .button {
+        position: absolute;
+        top: 10%;
+        right: 7%;
+        background-color: #eb08df;
+        color: rgb(253, 253, 253);
+        font-size: 20px;
+        padding: 16px 30px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: center;
+      }
+
+      .button1 {
+        position: absolute;
+        top: 10%;
+        right: 20%;
+        background-color: #eb08df;
+        color: rgb(253, 253, 253);
+        font-size: 20px;
+        padding: 16px 30px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: center;
+      }
+
+      .box {
+        margin-top: 150px;
+        margin-left: 150px;
+        margin-right: 150px;
+        border-radius: 5px;
+        border-style: double;
+        background-color:transparent;
+        padding: 10px;
+        text-align: center;
       }
     </style>
-    <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
   </head>
-  <body class="text-center">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-  <header class="masthead mb-auto">
-    <div class="inner">
-        <img src="{% static 'images/logo.png' %}" align="left" height="150" width=auto/>
-      <nav class="nav nav-masthead justify-content-end">
+  <a href="index.html">
+    <img src="{% static 'images/logo2.png' %}" style="width:300px;height:145px;border:0;">
+  </a>
+  <body>
+    <a href="l{% url 'login' %}" ><button class="button1"> Log in</button></a>
+    <a href="{% url 'signup' %}"><button class="button"> Sign up</button></a>
 
 
-        <a href="{% url 'signup' %}"><button type="button" class="btn btn-outline-primary">Sign Up</button>    </a>
-         <a href="{% url 'login' %}"><button type="button" class="btn btn-outline-success">Log in</button></a>
-
-      </nav>
-          <p>This is a test photo!!
-          </p>
-           <img src="{% static 'images/img_avatar2.png' %}" align="center" height="300" width="300"/>
+    <div class="box">
+      <h1><b>Our Services</b></h1>
+      <p>
+        This text is styled with some of the text formatting properties. The heading uses the text-align, text-transform, and color properties. The paragraph is indented, aligned, and the space between characters is specified. The underline is removed from this colored "Try it Yourself" link.
+      </p>
+      <a href="{% url 'aboutus' %}"><button type="button">About us</button></a>
+      <a href="{% url 'ourmission' %}"><button type="button"> Our Mission</button></a>
     </div>
-  </header>
-
-  <main role="main" class="inner cover">
-    <h1 class="cover-heading">Welcome to UAP_LIFE!!!</h1>
-    <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-    <p class="lead">
-      <a href="#" class="btn btn-lg btn-secondary">About us</a>
-    </p>
-  </main>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  <footer class="mastfoot mt-auto">
-    <div class="inner">
-
-    </div>
-  </footer>
-</div>
-</body>
+  </body>
 </html>
