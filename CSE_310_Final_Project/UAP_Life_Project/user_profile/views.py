@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, reverse
-from user_profile.forms import UserForm, UserProfileInfoForm
-from django.contrib.auth import authenticate, logout, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
+from django.shortcuts import get_object_or_404
+from django.shortcuts import render, redirect
+from django.contrib.auth import login, authenticate, logout
+from .forms import RegistrationForm, AccountAuthenticationForm
 
 @login_required
 def home(request):
@@ -18,57 +20,59 @@ def loginpage(request):
 
 
 def signup(request):
-    registered = False
-    if request.method == 'POST':
-        user_form = UserForm(data=request.POST)
-        profile_form = UserProfileInfoForm(data=request.POST)
-
-        if user_form.is_valid() and profile_form.is_valid():
-            user = user_form.save()                 # saving to database
-            user.set_password(user.password)        # hashing the password
-            user.save()
-            profile = profile_form.save(commit=False)
-            profile.user = user                     # one to one relationship
-
-            if 'profile_pic' in request.FILES:
-                profile.profile_pic = request.FILES['profile_pic']
-
-            profile.save()
-            registered = True
+    context = {}
+    if request.POST:
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            email = form.cleaned_data.get('email')
+            raw_password = form.cleaned_data.get('password1')
+            account = authenticate(email=email,password=raw_password)
+            login(request, account)
+            return redirect('home')
         else:
-            print(user_form.errors, profile_form.errors)
-
+            context['registration_form'] = form
     else:
-        user_form = UserForm()
-        profile_form = UserProfileInfoForm()
-    return render(request, 'user_profile/signup.html',
-                           {'user_form': user_form,
-                            'profile_form': profile_form,
-                            'registered': registered})
+        form = RegistrationForm()
+        context['registration_form'] = form
+
+    return render(request, 'user_profile/signup.html',context)
+
 
 # log in view
 
 
-def user_login(request):
-    if request.method == 'POST':
-        given_username = request.POST.get('username')
-        given_password = request.POST.get('password')
-        user = authenticate(username=given_username, password=given_password)
-
-        if user:
-            if user.is_active:
-                login(request, user)
-                return render(request, 'user_profile/Main_page.html')
-            else:
-                return HttpResponse('Account not active!!')
-        else:
-            return HttpResponse("Invalid login information!!")
-
+def log_in(request):
+    context = {}
+    user = request.user
+    if user.is_authenticated:
+        return redirect('home')
+    if request.POST:
+        form = AccountAuthenticationForm(request.POST)
+        if form.is_valid():
+            email = request.POST['email']
+            password = request.POST['password']
+            user = authenticate(email=email,password=password)
+            if user:
+                login(request,user)
+                return redirect('home')
     else:
-        return render(request, 'user_profile/login.html')
+        form = AccountAuthenticationForm()
+
+    context['login_form'] = form
+    return render(request, 'user_profile/login.html',context)
+
 
 
 @login_required
 def user_logout(request):
     logout(request)
     return render(request, 'user_profile/index.html')
+
+
+@login_required
+def my_profile(request, profile_username):
+    profile_detail = get_object_or_404(UserProfileInfo, pk=profile_username)
+    print(type(profile_detail))
+    print(profile_detail)
+    return render(request, 'user_profile/my_profile.html', {'profile_detail': profile_detail})

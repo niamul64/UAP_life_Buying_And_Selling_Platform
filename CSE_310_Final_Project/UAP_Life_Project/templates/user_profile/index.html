@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -103,11 +104,12 @@
       }
     </style>
   </head>
-  <a href="index.html">
-    <img src="{% static 'images/logo2.png' %}" style="width:300px;height:145px;border:0;">
-  </a>
+
+
   <body>
-    <a href="l{% url 'login' %}" ><button class="button1"> Log in</button></a>
+        <img src="{% static 'images/small.png' %}" align="left" width="150" height="auto">
+
+    <a href="{% url 'login' %}" ><button class="button1"> Log in</button></a>
     <a href="{% url 'signup' %}"><button class="button"> Sign up</button></a>
 
 
@@ -116,8 +118,8 @@
       <p>
         This text is styled with some of the text formatting properties. The heading uses the text-align, text-transform, and color properties. The paragraph is indented, aligned, and the space between characters is specified. The underline is removed from this colored "Try it Yourself" link.
       </p>
-      <a href="{% url 'aboutus' %}"><button type="button">About us</button></a>
-      <a href="{% url 'ourmission' %}"><button type="button"> Our Mission</button></a>
+      <a href="#"><button type="button">About us</button></a>
+      <a href="#"><button type="button"> Our Mission</button></a>
     </div>
   </body>
 </html>

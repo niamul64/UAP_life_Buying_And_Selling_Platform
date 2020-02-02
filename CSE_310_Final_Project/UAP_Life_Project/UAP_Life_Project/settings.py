@@ -70,6 +70,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'UAP_Life_Project.wsgi.application'
 
+AUTH_USER_MODEL = 'user_profile.Account'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
