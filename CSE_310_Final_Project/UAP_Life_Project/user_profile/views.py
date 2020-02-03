@@ -27,9 +27,9 @@ def signup(request):
             form.save()
             email = form.cleaned_data.get('email')
             raw_password = form.cleaned_data.get('password1')
-            account = authenticate(email=email,password=raw_password)
-            login(request, account)
-            return redirect('home')
+            user = authenticate(email=email,password=raw_password)
+            login(request, user)
+            return render(request,'user_profile/Main_page.html',{'user':user})
         else:
             context['registration_form'] = form
     else:
@@ -55,7 +55,7 @@ def log_in(request):
             user = authenticate(email=email,password=password)
             if user:
                 login(request,user)
-                return redirect('home')
+                return render(request,'user_profile/Main_page.html',{'user':user})
     else:
         form = AccountAuthenticationForm()
 
@@ -70,9 +70,3 @@ def user_logout(request):
     return render(request, 'user_profile/index.html')
 
 
-@login_required
-def my_profile(request, profile_username):
-    profile_detail = get_object_or_404(UserProfileInfo, pk=profile_username)
-    print(type(profile_detail))
-    print(profile_detail)
-    return render(request, 'user_profile/my_profile.html', {'profile_detail': profile_detail})

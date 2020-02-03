@@ -13,7 +13,7 @@ class RegistrationForm(UserCreationForm):
 
 
 class AccountAuthenticationForm(forms.ModelForm):
-    password = forms.CharField(label='Password',widget=forms.PasswordInput)
+    password = forms.CharField(label='Password', widget=forms.PasswordInput)
 
     class Meta:
         model = Account
@@ -27,7 +27,5 @@ class AccountAuthenticationForm(forms.ModelForm):
                 raise forms.ValidationError("Invalid Login info!")
 
 
-
-
 class AccountUpdateForm(forms.ModelForm):
-    fielsd =('username','profile_pic')
+    fields =('username','profile_pic')

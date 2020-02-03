@@ -1,4 +1,5 @@
-<!DOCTYPE html> {% load staticfiles %}
+<!DOCTYPE html>
+{% load staticfiles %}
 <html lang="en">
 
 <head>
@@ -119,7 +120,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <a href="#"><button type="button" class="btn btn-warning" style="margin-top: 6px; margin-right: 4px;font-size: 13px;">Post AD</button></a>
-                    <a href="#"><button type="button" class="btn btn-success" style="margin-top: 6px; margin-left: 4px; font-size: 13px;">UAP QUESTION BANK</button></a>
+                    <a href="{% url 'q_index' %}"><button type="button" class="btn btn-success" style="margin-top: 6px; margin-left: 4px; font-size: 13px;">UAP QUESTION BANK</button></a>
 
                 </ul>
                 <form class="navbar-form navbar-left" action="#">
