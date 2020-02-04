@@ -54,7 +54,16 @@ class Account(AbstractBaseUser):
     first_name = models.CharField(max_length=60)
     last_name = models.CharField(max_length=60)
     reg_id = models.CharField(max_length=20)
-    department = models.CharField(max_length=20)
+    DEPT_CHOICES = (
+        ('CSE', 'CSE'),
+        ('EEE', 'EEE'),
+        ('CIVIL', 'CIVIL'),
+        ('ARCHITECTURE', 'ARCHITECTURE'),
+        ('PHARMACY', 'PHARMACY'),
+        ('ENGLISH', 'ENGLISH'),
+        ('BBA', 'BBA'),
+    )
+    department = models.CharField(max_length=20,choices=DEPT_CHOICES)
     profile_pic = models.ImageField('profile_pics/', blank=True)
     date_joined = models.DateField(verbose_name='date_joined',auto_now_add=True)
     last_login = models.DateField(verbose_name='last_login',auto_now=True)

@@ -3,7 +3,7 @@
   {% block content %}
   <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
-      {% for field in registration_form %}
+      {% for field in form %}
       <p>
           {{field.label_tag}}
           {{field}}
@@ -17,7 +17,7 @@
 
 
       {% endfor %}
-      <button type="submit">Register</button>
+      <button type="submit">Submit Question</button>
   </form>
 
   {% endblock %}

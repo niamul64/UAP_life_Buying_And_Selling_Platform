@@ -26,14 +26,14 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Programs\NewPy\Project\CSE_310_Final_Project\UAP_Life_Project\templates\user_profile" />
-      <recent name="D:\Programs\NewPy\Project\CSE_310_Final_Project\UAP_Life_Project\templates\index" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Programs\NewPy\Project\CSE_310_Final_Project\UAP_Life_Project\templates\user_profile" />
       <recent name="D:\Programs\NewPy\Project\CSE_310_Final_Project\UAP_Life_Project\static\images" />
       <recent name="D:\Programs\NewPy\Project\CSE_310_Final_Project\UAP_Life_Project\UAP_Life_Project\static\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Programs\NewPy\Project\CSE_310_Final_Project\UAP_Life_Project\templates\user_profile" />
+      <recent name="D:\Programs\NewPy\Project\CSE_310_Final_Project\UAP_Life_Project\templates\index" />
     </key>
   </component>
   <component name="RunDashboard">

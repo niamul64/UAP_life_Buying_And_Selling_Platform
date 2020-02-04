@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Welcome to the Question Bank!!</h2>
+     <div class="container">
+         {% for question in questions.all %}
+          <div class="card" style="width: 18rem;">
+  <img src="{{ question.image1.url }}" class="card-img-top" alt="...">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><strong>Department</strong> : {{ question.department }}</li>
+    <li class="list-group-item"><strong>Semester</strong>   : {{ question.semester }}</li>
+      <li class="list-group-item"><strong>Exam Type</strong>   : {{ question.question_type }}</li>
+      <li class="list-group-item"><strong>Session</strong>   : {{ question.session }}</li>
+      <li class="list-group-item"><strong>Exam Date</strong>   : {{ question.exam_date }}</li>
+      <li class="list-group-item"><strong>Upload Date</strong>   : {{ question.date_published }}</li>
+
+
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">See Full Question </a>
+    <a href="#" class="card-link">See Answers</a>
+
+  </div>
+</div>
+</div>
+
+
+         </br>
+      </br>
+
+         {% endfor %}
+   </div>
+
+</div>
+{% endblock %}
