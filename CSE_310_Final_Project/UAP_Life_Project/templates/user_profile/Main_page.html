@@ -243,6 +243,35 @@
     </nav>
 
 
+
+        <!--promotions-->
+
+<i class="fas fa-box " style="float: right; ">
+    <h1>Promotions:</h1>
+   {% for i in pro %}
+
+
+  <div class="card" style="width: 36rem;">
+
+
+
+                <img src="{{ i.image.url }}" class="d-block w-100" alt="...">
+
+
+
+
+  <div class="card-body">
+    <h5 class="card-title">{{i.title}}</h5>
+    <p class="card-text">{{i.description}}</p>
+
+  </div>
+</div>
+
+  {% endfor %}
+    </i>
+    <!--promotions-->
+
+
     <script>
         alert("Welcome to homepage {{user.username}}");
     </script>

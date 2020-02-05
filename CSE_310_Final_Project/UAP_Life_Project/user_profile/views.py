@@ -5,10 +5,12 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from .forms import RegistrationForm, AccountAuthenticationForm
-
+from .models import Promo
 @login_required
 def home(request):
-    return render(request, 'user_profile/Main_page.html')
+    y = Promo.objects.all()
+    print (y)
+    return render(request, 'user_profile/Main_page.html', {'pro': y})
 
 
 def index(request):

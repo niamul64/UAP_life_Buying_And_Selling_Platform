@@ -86,3 +86,15 @@ class Account(AbstractBaseUser):
     def has_module_perms(self,app_label):
         return True
 
+
+
+
+class Promo(models.Model):
+    title = models.CharField(max_length=50,null=False,blank=False)
+    description = models.TextField(max_length=20)
+    image = models.ImageField(upload_to='promo_pic/')
+    date_published = models.DateTimeField(auto_now_add=True, verbose_name='date_published')
+
+
+    def __str__(self):
+        return self.description
