@@ -91,7 +91,7 @@ class Account(AbstractBaseUser):
 
 class Promo(models.Model):
     title = models.CharField(max_length=50,null=False,blank=False)
-    description = models.TextField(max_length=20)
+    description = models.TextField(max_length=200 , default="")
     image = models.ImageField(upload_to='promo_pic/')
     date_published = models.DateTimeField(auto_now_add=True, verbose_name='date_published')
 
