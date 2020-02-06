@@ -5,12 +5,15 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from .forms import RegistrationForm, AccountAuthenticationForm
-from .models import Promo
+from .models import Promo,PostAd
+
 @login_required
 def home(request):
     y = Promo.objects.all()
     print (y)
-    return render(request, 'user_profile/Main_page.html', {'pro': y})
+    xc = PostAd.objects.all().order_by("-date_publish")
+    print (xc)
+    return render(request, 'user_profile/Main_page.html',{'pro':y,'AD':xc})
 
 
 def index(request):
@@ -57,7 +60,11 @@ def log_in(request):
             user = authenticate(email=email,password=password)
             if user:
                 login(request,user)
-                return render(request,'user_profile/Main_page.html',{'user':user})
+                y = Promo.objects.all()
+                print (y)
+                xc = PostAd.objects.all().order_by("-date_publish")
+                print (xc)
+                return render(request,'user_profile/Main_page.html',{'user':user,'pro':y,'AD':xc})
     else:
         form = AccountAuthenticationForm()
 

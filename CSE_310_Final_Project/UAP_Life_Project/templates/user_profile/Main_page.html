@@ -110,7 +110,7 @@
 
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light fixed" style="position: sticky; background-color: #e3f2fd;">
+    <nav class="navbar navbar-expand-lg navbar-light fixed" style=" position: sticky; background-color: #e3f2fd;">
         <div class="container-fluid">
             <div class="navbar-header" style="float: left;">
                 <img src="{% static 'images/small.png' %}" height="60" width=auto/>
@@ -246,7 +246,8 @@
 
         <!--promotions-->
 
-<i class="fas fa-box " style="float: right; ">
+<i class="fas fa-box " style="float: right; background-color:  rgb(161, 162, 165); ">
+ <div style="padding: 8px;">
     <h1>Promotions:</h1>
    {% for i in pro %}
 
@@ -266,10 +267,44 @@
 
   </div>
 </div>
-
+</div>
   {% endfor %}
+
     </i>
+
+
     <!--promotions-->
+
+    <!--AD show-->
+
+<i class="fas fa-box " style="float: left; width: 1400px; background-color:  rgb(217, 224, 245); ">
+  <div style="padding: 8px;">
+    <h1>ADs:</h1>
+   {% for j in AD %}
+
+
+  <div class="card" style="width: 36rem; float: left;">
+
+      <img src="{{ j.image1.url }}" class="d-block w-100" alt="...">
+
+
+
+
+  <div class="card-body">
+    <h5 class="card-title">{{j.title}}</h5>
+    <p class="card-text">price:{{j.Price}}</p>
+    <p class="card-text">contact:{{j.contact}}</p>
+
+  </div>
+</div>
+</div>
+  {% endfor %}
+
+    </i>
+
+
+    <!--AD show-->
+
 
 
     <script>

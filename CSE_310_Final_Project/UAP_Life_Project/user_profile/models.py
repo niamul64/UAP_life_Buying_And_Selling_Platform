@@ -1,7 +1,7 @@
 from django.db import models
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-
+from django.utils import timezone
 # custom user manager
 
 
@@ -89,12 +89,28 @@ class Account(AbstractBaseUser):
 
 
 
+
 class Promo(models.Model):
     title = models.CharField(max_length=50,null=False,blank=False)
-    description = models.TextField(max_length=200 , default="")
+    description = models.TextField(max_length=200)
     image = models.ImageField(upload_to='promo_pic/')
-    date_published = models.DateTimeField(auto_now_add=True, verbose_name='date_published')
+    date_published = models.DateTimeField(default=timezone.now)
 
 
     def __str__(self):
         return self.description
+
+
+
+
+class PostAd(models.Model):
+    title = models.CharField(max_length=50,null=False,blank=False)
+    Price = models.CharField(max_length=6,null=False, blank=False)
+    description = models.TextField(max_length=200, default="")
+    image1 = models.ImageField(upload_to='PostAD_pic/',null=True, blank=True)
+    image2 = models.ImageField(upload_to='PostAD_pic/',null=True, blank=True)
+    date_publish = models.DateTimeField(default=timezone.now)
+    contact = models.CharField(max_length=15, null=False, blank=False)
+
+    def __str__(self):
+        return self.title
