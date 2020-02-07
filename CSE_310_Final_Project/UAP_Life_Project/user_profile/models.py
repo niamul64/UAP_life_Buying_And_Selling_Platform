@@ -3,6 +3,9 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.utils import timezone
 from django.conf import settings
+from multiselectfield import MultiSelectField
+from django.utils.text import slugify
+from django.dispatch import receiver
 # custom user manager
 
 
@@ -107,12 +110,41 @@ class Promo(models.Model):
 
 
 class Categories(models.Model):
-    sub_cat = models.CharField(max_length=50,null=False,blank=False)
-    main_cat = models.CharField(max_length=50,null=False, blank=False)
 
+    sub_cat = (
+        ('CSE', 'CSE'),
+        ('EEE', 'EEE'),
+        ('Civil', 'Civil'),
+        ('Architecture', 'Architecture'),
+        ('Pharmacy', 'Pharmacy'),
+        ('English', 'English'),
+        ('Business', 'Business'),
+        ('Law', 'Law'),
+        ('History', 'History'),
+        ('Math', 'Math'),
+        ('Others', 'Others'),
+        ('Mobile', 'Mobile'),
+        ('Mobile Accessories', 'Mobile Accessories'),
+        ('Computer & laptop', 'Computer & laptop'),
+        ('Computer & laptop Accessories', 'Computer & laptop Accessories'),
+        ('Camera & Camera Accessories', 'Camera & Camera Accessories'),
+        ('Other Electronics', 'Other Electronics'),
+        ('Business', 'Business'),
 
-    def __str__(self):
-        return self.title
+    )
+    main_cat = (
+        ('Books', 'Books'),
+        ('Job', 'Job'),
+        ('Service/Volunteer', 'Service/Volunteer'),
+        ('Accommodation', 'Accommodation'),
+        ('Tution', 'Tution'),
+        ('Borrow', 'Borrow'),
+        ('Electronics', 'Electronics'),
+        ('Others', 'Others'),
+    )
+    sub_c =MultiSelectField( max_length =55, choices=sub_cat,null=True,blank= True )
+    main_c = MultiSelectField(max_length=55, choices=main_cat,null=True, blank=True)
+
 
 
 
@@ -123,8 +155,8 @@ class PostAd(models.Model):
     image1 = models.ImageField(upload_to='PostAD_pic/',default="images/demo.jpg" ,null=True, blank=True)
     image2 = models.ImageField(upload_to='PostAD_pic/',default="images/demo.jpg",null=True, blank=True)
     date_publish = models.DateTimeField(default=timezone.now)
-    user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,null=True)
-    cat_id = models.ForeignKey(Categories, on_delete=models.CASCADE,null=True)
+    user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,null=True , blank=True)
+    cat_id = models.ForeignKey(Categories, on_delete=models.CASCADE,null=True , blank=True)
 
     def __str__(self):
         return self.title
