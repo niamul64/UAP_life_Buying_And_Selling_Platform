@@ -225,7 +225,7 @@
                     </div>
                     <!--2nd drop down end-->
 
-                    <li style="font-size: 13px;"><a href="#"><span class="glyphicon glyphicon-user"></span> MY Profile</a></li>
+                    <li style="font-size: 13px;"><a href="{% url 'user_profile' user.id %}"><span class="glyphicon glyphicon-user"></span> MY Profile</a></li>
                     <li style="font-size: 13px;"><a href="{% url 'logout'%}"><span class="glyphicon glyphicon-log-in" style=" margin-right: 4px;"></span>Sign Out</a></li>
                 </ul>
 
