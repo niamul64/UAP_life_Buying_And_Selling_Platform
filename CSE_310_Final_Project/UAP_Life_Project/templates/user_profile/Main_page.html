@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-{% load staticfiles %}
+<!DOCTYPE html> {% load staticfiles %}
 <html lang="en">
 
 <head>
@@ -123,7 +122,8 @@
                     <a href="{% url 'q_index' %}"><button type="button" class="btn btn-success" style="margin-top: 6px; margin-left: 4px; font-size: 13px;">UAP QUESTION BANK</button></a>
 
                 </ul>
-                <form class="navbar-form navbar-left" action="#">
+                <form class="navbar-form navbar-left" action="{% url 'home' %}" method="POST">
+                    {% csrf_token%}
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search" name="search">
                         <div class="input-group-btn">
@@ -244,9 +244,9 @@
 
 
 
-        <!--promotions-->
+    <!--promotions-->
 
-<i class="fas fa-box " style="float: right; background-color:  rgb(161, 162, 165); ">
+    <i class="fas fa-box " style="float: right; background-color:  rgb(161, 162, 165); ">
  <div style="padding: 8px;">
     <h1>Promotions:</h1>
    {% for i in pro %}
@@ -277,30 +277,30 @@
 
     <!--AD show-->
 
-<i class="fas fa-box " style="float: left; width: 1400px; background-color:  rgb(217, 224, 245); ">
-  <div style="padding: 8px;">
-    <h1>ADs:</h1>
-   {% for j in AD %}
+
+    <div style="margin: 4px;">
+        <h1>ADs:</h1>
+        {% for j in AD %}
 
 
-  <div class="card" style="width: 36rem; float: left; height: 200px ; width:300px ;">
+        <div class="card" style="width: 36rem; float: left; height: 250px ; margin: 22px;">
 
-      <img src="{{ j.image1.url }}" class="d-block w-100" alt="..." style="height: 200px ; width:auto ;">
-
-
+            <img src="{{ j.image1.url }}" class="d-block w-100" alt="..." style="height: 200px ; width:auto ;">
 
 
-  <div class="card-body">
-    <h5 class="card-title">{{j.title}}</h5>
-    <p class="card-text">price:{{j.Price}}</p>
 
 
-  </div>
-</div>
-</div>
-  {% endfor %}
+            <div class="card-body" style="padding: 4px ;">
+                <h5 class="card-title">{{j.title}}</h5>
+                <p class="card-text">price:{{j.Price}}</p>
 
-    </i>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+
 
 
     <!--AD show-->

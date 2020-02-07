@@ -13,6 +13,16 @@ def home(request):
     print (y)
     xc = PostAd.objects.all().order_by("-date_publish")
     print (xc)
+
+    if request.method=='POST':
+        se=request.POST["search"]
+        print ("got form SEarch:"+se)
+        res= [x for x in xc if se in x.title]
+        xc=res
+
+
+
+
     return render(request, 'user_profile/Main_page.html',{'pro':y,'AD':xc})
 
 
