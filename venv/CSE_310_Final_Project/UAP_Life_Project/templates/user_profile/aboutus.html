@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>About us</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+background:linear-gradient(to left, rgba(164, 58, 235, 0), rgb(14, 238, 238));
+  background-size: cover;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 24.3%;
+  margin-bottom: 0px;
+  padding: 0 8px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+
+.about-section {
+  padding: 0px;
+  text-align: center;
+  background-color:transparent;
+  color: rgb(0, 0, 0);
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button1 {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  background-color: #ca8a00;
+  color: rgb(253, 253, 253);
+  font-size: 20px;
+  padding: 16px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.button1:hover {
+  background-color: rgb(88, 73, 73);
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+</style>
+</head>
+
+<a href="index.html">
+    <img src="{% static 'images/logo2.png' %}" style="width:300px;height:145px;border:0;">
+</a>
+<body>
+
+<a href="index.html"><button class="button1">Register or Sign in</button></a>
+
+<div class="about-section">
+  <h1><b><u>About us</u></b></h1>
+  <p>Some text about who we are and what we do.</p>
+  <p>Resize the browser window to see that this page is responsive by the way.</p>
+</div>
+
+<h2 style="text-align:center"><i>Our Team</i></h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="{% static 'images/anik.png' %}" style="width:100%">
+      <div class="container">
+        <h2>Md.Anik Khan</h2>
+        <p class="title">CEO & Founder</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <a>Email:<i>anikse111@gmail.com</i></a>
+        <a href="facebook.com/codeanik"><button class="button">Connect facebook</button></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="#" style="width:100%">
+      <div class="container">
+        <h2>Mahmud Kabur Sadi</h2>
+        <p class="title">CEO & Founder</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <a>Email:<i>17201001@uap-bd.edu</i></a>
+        <a href="#"><button class="button">Connect facebook</button></a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="column">
+    <div class="card">
+      <img src="#" style="width:100%">
+      <div class="container">
+        <h2>Md.Niamu Hasan</h2>
+        <p class="title">CEO & Founder</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <a>Email:<i>17201026@uap-bd.edu</i></a>
+        <a href="#"><button class="button">Connect facebook</button></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="#" style="width:100%">
+      <div class="container">
+        <h2>Biswambar Sharkar</h2>
+        <p class="title">CEO & Founder</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <a>Email:<i>172010@uap-bd.edu</i></a>
+        <a href="#"><button class="button">Connect facebook</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

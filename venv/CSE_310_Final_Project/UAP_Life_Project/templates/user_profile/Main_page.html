@@ -1,0 +1,314 @@
+<!DOCTYPE html> {% load staticfiles %}
+<html lang="en">
+
+<head>
+    <title>Main page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <style>
+        .dropdown-submenu {
+            position: relative;
+        }
+
+        .dropdown-submenu .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+        }
+    </style>
+
+
+
+
+    <style>
+        .dropdown {
+            float: left;
+            position: relative;
+            z-index: 10;
+        }
+
+        .dropdown .dropbtn {
+            background-color: rgb(56, 86, 168);
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 30px;
+            margin-left: 5px;
+            font-size: 14px;
+            border-radius: 4px;
+            padding: 4px;
+            margin-top: 11px;
+            margin-left: 4px;
+            margin-right: 4px;
+        }
+
+        .dropdown-one {
+            cursor: pointer;
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-two {
+            cursor: pointer;
+            display: none;
+            position: absolute;
+            left: 160px;
+            top: 0px;
+            min-width: 160px;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown:hover .dropdown-one,
+        #link1:hover>.dropdown-two {
+            display: block;
+        }
+
+        .dropdown-one .dItem {
+            color: black;
+            padding: 12px 16px;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-one .dItem:hover,
+        .dropdown-two a:hover {
+            background-color: #ddd;
+        }
+    </style>
+
+
+
+
+
+
+
+
+    <script>
+        $(document).ready(function() {
+            $('.dropdown-submenu a.test').on("click", function(e) {
+                $(this).next('ul').toggle();
+                e.stopPropagation();
+                e.preventDefault();
+            });
+        });
+    </script>
+
+
+
+</head>
+
+
+<body>
+    <nav class="sticky-top navbar navbar-expand-lg navbar-light fixed" style="background-color: #e3f2fd;">
+        <div class="container-fluid">
+            <div class="navbar-header" style="float: left;">
+                <img src="{% static 'images/small.png' %}" height="60" width=auto/>
+            </div>
+
+
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <a href="#"><button type="button" class="btn btn-warning" style="margin-top: 6px; margin-right: 4px;font-size: 13px;">Post AD</button></a>
+                    <a href="{% url 'q_index' %}"><button type="button" class="btn btn-success" style="margin-top: 6px; margin-left: 4px; font-size: 13px;">UAP QUESTION BANK</button></a>
+
+                </ul>
+                <form class="navbar-form navbar-left" action="{% url 'home' %}" method="POST">
+                    {% csrf_token%}
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="search">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+                        </div>
+                    </div>
+                </form>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <div style="z-index: 20;">
+                        <!--1nd drop down-->
+                        <div class="dropdown">
+                            <div class="dropbtn">SEARCH BY DEPARTMENT</div>
+
+                            <div class="dropdown-one">
+                                <div class="dItem" href="#">All Departments</div>
+                                <div class="dItem" href="#">CSE</div>
+                                <div class="dItem" href="#">EEE</div>
+                                <div class="dItem" href="#">Civil</div>
+                                <div class="dItem" href="#">Architecture</div>
+                                <div class="dItem" href="#">Business Administration</div>
+                                <div class="dItem" href="#">English</div>
+                                <div class="dItem" href="#">Pharmacy</div>
+                                <div class="dItem" href="#">Law</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--1nd drop down end-->
+
+
+
+
+                    <!--2nd drop down-->
+                    <div class="dropdown">
+                        <div class="dropbtn">SEARCHING CATEGORIES</div>
+
+                        <div class="dropdown-one">
+                            <div class="dItem" href="#">All Categories</div>
+                            <div id="link1" class="dItem" href="#">books
+                                <!--  Inside Dropdown -->
+                                <div class="dropdown-two">
+                                    <div class="dItem" href="#">EEE</div>
+                                    <div class="dItem" href="#">CSE</div>
+                                    <div class="dItem" href="#">Law</div>
+                                    <div class="dItem" href="#">Business</div>
+                                    <div class="dItem" href="#">Pharmacy</div>
+                                    <div class="dItem" href="#">English</div>
+                                    <div class="dItem" href="#">History</div>
+                                    <div class="dItem" href="#">Math</div>
+                                    <div class="dItem" href="#">Civil</div>
+                                    <div class="dItem" href="#">Others</div>
+                                </div>
+                            </div>
+
+                            <div id="link1" class="dItem" href="#">Job
+                                <!--  Inside Dropdown -->
+                                <div class="dropdown-two">
+                                    <div class="dItem" href="#">EEE</div>
+                                    <div class="dItem" href="#">CSE</div>
+                                    <div class="dItem" href="#">Law</div>
+                                    <div class="dItem" href="#">Business</div>
+                                    <div class="dItem" href="#">Pharmacy</div>
+                                    <div class="dItem" href="#">English</div>
+                                    <div class="dItem" href="#">Architecture</div>
+                                    <div class="dItem" href="#">Civil</div>
+                                    <div class="dItem" href="#">Others</div>
+                                </div>
+                            </div>
+
+                            <div id="link1" class="dItem" href="#">Electronics
+                                <!--  Inside Dropdown -->
+                                <div class="dropdown-two">
+                                    <div class="dItem" href="#">Mobile</div>
+                                    <div class="dItem" href="#">Mobile Accessories </div>
+                                    <div class="dItem" href="#">Computer & laptop</div>
+                                    <div class="dItem" href="#">Computer & laptop Accessories</div>
+                                    <div class="dItem" href="#">Camera & Camera Accessories</div>
+                                    <div class="dItem" href="#">Other Electronics</div>
+
+                                </div>
+                            </div>
+
+
+
+                            <div class="dItem" href="#">Service/volunteer</div>
+                            <div class="dItem" href="#">Education/Course</div>
+
+
+
+
+                            <div class="dItem" href="#">Accommodation</div>
+                            <div class="dItem" href="#">Tution</div>
+                            <div class="dItem" href="#">Borrow Something</div>
+                            <div class="dItem" href="#">Others+</div>
+                        </div>
+                    </div>
+                    <!--2nd drop down end-->
+
+                    <li style="font-size: 13px;"><a href="#"><span class="glyphicon glyphicon-user"></span> MY Profile</a></li>
+                    <li style="font-size: 13px;"><a href="{% url 'logout'%}"><span class="glyphicon glyphicon-log-in" style=" margin-right: 4px;"></span>Sign Out</a></li>
+                </ul>
+
+
+
+            </div>
+
+
+
+
+
+
+
+        </div>
+    </nav>
+
+
+
+    <!--promotions-->
+
+    <i class="fas fa-box " style="float: right; background-color:  rgb(161, 162, 165);">
+ <div style="padding: 8px;">
+    <h1>Promotions:</h1>
+   {% for i in pro %}
+
+
+  <div class="card" style="width: 36rem;">
+
+
+
+                <img src="{{ i.image.url }}" class="d-block w-100" alt="...">
+
+
+
+
+  <div class="card-body">
+    <h5 class="card-title">{{i.title}}</h5>
+    <p class="card-text">{{i.description}}</p>
+
+  </div>
+</div>
+</div>
+  {% endfor %}
+
+    </i>
+
+
+    <!--promotions-->
+
+    <!--AD show-->
+
+
+    <div style="margin: 4px;">
+        <h1>ADs:</h1>
+        {% for j in AD %}
+
+
+        <div class="card" style="width: 36rem; float: left; height: 250px ; margin: 22px;">
+
+            <img src="{{ j.image1.url }}" class="d-block w-100" alt="..." style="height: 200px ; width:auto ;">
+
+
+
+
+            <div class="card-body" style="padding: 4px ;">
+                <h5 class="card-title">{{j.title}}</h5>
+                <p class="card-text">price:{{j.Price}}</p>
+
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+
+
+
+    <!--AD show-->
+
+
+
+
+
+</body>
+
+</html>
