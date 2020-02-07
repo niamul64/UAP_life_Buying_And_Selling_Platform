@@ -8,6 +8,7 @@
           <div class="card" style="width: 18rem;">
   <img src="{{ question.image1.url }}" class="card-img-top" alt="...">
   <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>Submitted By</strong> : {{ question.author.username }}</li>
     <li class="list-group-item"><strong>Department</strong> : {{ question.department }}</li>
     <li class="list-group-item"><strong>Semester</strong>   : {{ question.semester }}</li>
       <li class="list-group-item"><strong>Exam Type</strong>   : {{ question.question_type }}</li>
@@ -18,8 +19,7 @@
 
   </ul>
   <div class="card-body">
-    <a href="#" class="card-link">See Full Question </a>
-    <a href="#" class="card-link">See Answers</a>
+    <a href="{%url 'full_question' question.id %}" class="card-link">See Full Question </a>
 
   </div>
 </div>

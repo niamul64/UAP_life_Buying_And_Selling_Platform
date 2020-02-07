@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+
+         {% for answer in answers.all %}
+
+        <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{ answer.image1.url }}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Submitted By : {{ answer.author.username }}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Full Answer</a>
+  </div>
+</div>
+
+
+         </br>
+      </br>
+
+         {% endfor %}
+   </div>
+
+</div>
+{% endblock %}

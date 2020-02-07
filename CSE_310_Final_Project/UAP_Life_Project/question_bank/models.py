@@ -76,3 +76,17 @@ def pre_save_question_receiver(sender, instance, *args, **kwargs):
 
 
 pre_save.connect(pre_save_question_receiver, sender=Question)
+
+
+class Answer(models.Model):
+    image1 = models.ImageField(upload_to='ans_images', blank=False, null=False)
+    image2 = models.ImageField(upload_to='ans_images', blank=True)
+    image3 = models.ImageField(upload_to='ans_images', blank=True)
+    image4 = models.ImageField(upload_to='ans_images', blank=True)
+    image5 = models.ImageField(upload_to='ans_images', blank=True)
+    image6 = models.ImageField(upload_to='ans_images', blank=True)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "Sol-of-qs" + str(self.question.id)+"By-" + str(self.author.username)

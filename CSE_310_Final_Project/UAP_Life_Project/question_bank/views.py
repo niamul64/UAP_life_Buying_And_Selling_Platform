@@ -3,9 +3,10 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404
-from .models import Question
+from .models import Question, Answer
 from user_profile.models import Account
-from .forms import CreateQuestionForm
+from .forms import CreateQuestionForm, CreateAnswerForm
+
 # Create your views here.
 
 
@@ -34,6 +35,36 @@ def submit_question(request):
     return render(request, 'question_bank/submit_question.html', context)
 
 
+def submit_answer(request, question_id):
+    context = {}
+    user = request.user
+    if not user.is_authenticated:
+        return redirect('must_authenticate')
+
+    form = CreateAnswerForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        obj = form.save(commit=False)
+        author = Account.objects.filter(email=user.email).first()
+        obj.author = author
+        obj.question = Question.objects.get(pk=question_id)
+        obj.save()
+        form = CreateAnswerForm()
+    context['form'] = form
+    return render(request, 'question_bank/submit_answer.html', context)
+
+
 def browse_question(request):
     questions = Question.objects
-    return render(request,'question_bank/browse_question.html',{'questions': questions})
+    return render(request, 'question_bank/browse_question.html', {'questions': questions})
+
+
+def full_question(request, question_id):
+    full = get_object_or_404(Question, pk=question_id)
+    return render(request,'question_bank/full_question.html',{"full": full})
+
+
+def browse_answer(request, question_id):
+    answers = get_object_or_404(Answer, fk=question_id)
+    print(answers)
+
+    return render(request, 'question_bank/browse_answer.html', {'answers': answers})

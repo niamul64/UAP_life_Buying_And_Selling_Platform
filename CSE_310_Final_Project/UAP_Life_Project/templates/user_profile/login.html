@@ -1,24 +1,15 @@
   {% extends 'base.html' %}
-
+  {% load crispy_forms_tags %}
   {% block content %}
-  <form method="POST">
+ <div class="offset-4 col-md-4">
+      <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
-      {% for field in login_form %}
-      <p>
-          {{field.label_tag}}
-          {{field}}
-          {% if field.help_text %}
-          <small style="color:grey;">{{field.help_text}}</small>
-          {% endif %}
+     {{login_form|crispy}}
 
-      {% endfor %}
+      <button class="btn btn-primary" type="submit">Submit Question</button>
+  </form>
+  </div>
 
-            {% for error in login_form.field.errors %}
-             <p style="color:red;">{{error}}</p>
-          {% endfor %}
-      <br/>
-          <button type="submit">log in </button>
-      </p>
 
 
       {% if login_form.non_field_errors %}

@@ -1,0 +1,32 @@
+  {% extends 'base.html' %}
+
+  {% block content %}
+  <form method="POST">
+      {% csrf_token %}
+      {% for field in update_form %}
+      <p>
+          {{field.label_tag}}
+          {{field}}
+          {% if field.help_text %}
+          <small style="color:grey;">{{field.help_text}}</small>
+          {% endif %}
+
+      {% endfor %}
+
+            {% for error in update_form.field.errors %}
+             <p style="color:red;">{{error}}</p>
+          {% endfor %}
+      <br/>
+          <button type="submit">Save Changes </button>
+      </p>
+
+
+      {% if login_form.non_field_errors %}
+      <div style="color:red;">
+           <p>{{ login_form.non_field_errors }}</p>
+      </div>
+      {% endif %}
+
+     </form>
+
+  {% endblock %}

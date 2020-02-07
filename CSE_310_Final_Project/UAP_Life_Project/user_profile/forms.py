@@ -5,11 +5,11 @@ from django.contrib.auth import authenticate
 
 
 class RegistrationForm(UserCreationForm):
-    email = forms.EmailField(max_length=60, help_text ='Required. Add your uap-mail address')
+    email = forms.EmailField(max_length=60, help_text='Required. Add your uap-mail address')
 
     class Meta:
         model = Account
-        fields = ("email","username","first_name","last_name","reg_id","department","profile_pic","password1", "password2")
+        fields = ("email", "username", "first_name", "last_name", "reg_id", "department", "profile_pic", "password1", "password2")
 
 
 class AccountAuthenticationForm(forms.ModelForm):
@@ -17,7 +17,7 @@ class AccountAuthenticationForm(forms.ModelForm):
 
     class Meta:
         model = Account
-        fields = ('email','password')
+        fields = ('email', 'password')
 
     def clean(self):
         if self.is_valid():
@@ -28,4 +28,16 @@ class AccountAuthenticationForm(forms.ModelForm):
 
 
 class AccountUpdateForm(forms.ModelForm):
-    fields =('username','profile_pic')
+    class Meta:
+        model = Account
+        fields =('username','profile_pic')
+
+    def clean_username(self):
+        if self.is_valid():
+            username = self.cleaned_data['username']
+            try:
+                account = Account.objects,exclude(pk=self.instance.pk).get(username=username)
+            except Account.DoesNotExist:
+                return username
+            raise forms.ValidationError('Username "%s" is already in use.' % username)
+
