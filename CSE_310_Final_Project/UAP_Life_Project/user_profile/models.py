@@ -107,8 +107,8 @@ class PostAd(models.Model):
     title = models.CharField(max_length=50,null=False,blank=False)
     Price = models.CharField(max_length=6,null=False, blank=False)
     description = models.TextField(max_length=200, default="")
-    image1 = models.ImageField(upload_to='PostAD_pic/',null=True, blank=True)
-    image2 = models.ImageField(upload_to='PostAD_pic/',null=True, blank=True)
+    image1 = models.ImageField(upload_to='PostAD_pic/',default="images/demo.jpg" ,null=True, blank=True)
+    image2 = models.ImageField(upload_to='PostAD_pic/',default="images/demo.jpg" ,null=True, blank=True)
     date_publish = models.DateTimeField(default=timezone.now)
     contact = models.CharField(max_length=15, null=False, blank=False)
 
