@@ -2,6 +2,7 @@ from django.db import models
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.utils import timezone
+from django.conf import settings
 # custom user manager
 
 
@@ -105,12 +106,21 @@ class Promo(models.Model):
 
 class PostAd(models.Model):
     title = models.CharField(max_length=50,null=False,blank=False)
-    Price = models.CharField(max_length=6,null=False, blank=False)
+    price = models.CharField(max_length=6,null=False, blank=False)
     description = models.TextField(max_length=200, default="")
     image1 = models.ImageField(upload_to='PostAD_pic/',default="images/demo.jpg" ,null=True, blank=True)
-    image2 = models.ImageField(upload_to='PostAD_pic/',default="images/demo.jpg" ,null=True, blank=True)
+    image2 = models.ImageField(upload_to='PostAD_pic/',default="images/demo.jpg",null=True, blank=True)
     date_publish = models.DateTimeField(default=timezone.now)
-    contact = models.CharField(max_length=15, null=False, blank=False)
+    user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,null=True)
+
+    def __str__(self):
+        return self.title
+
+
+class Categories(models.Model):
+    sub_cat = models.CharField(max_length=50,null=False,blank=False)
+    main_cat = models.CharField(max_length=50,null=False, blank=False)
+    user_id = models.ForeignKey(PostAd, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
