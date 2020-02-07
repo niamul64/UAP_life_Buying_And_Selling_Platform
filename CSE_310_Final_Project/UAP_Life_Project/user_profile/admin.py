@@ -2,10 +2,11 @@ from django.contrib import admin
 from .models import Account
 from django.contrib.auth.admin import UserAdmin
 
-from .models import Promo,PostAd
+from .models import Promo,PostAd,Categories
 
 admin.site.register(Promo)
 admin.site.register(PostAd)
+admin.site.register(Categories)
 
 
 
