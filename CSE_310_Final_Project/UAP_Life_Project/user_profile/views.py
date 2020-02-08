@@ -43,8 +43,11 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(email=email, password=raw_password)
             login(request, user)
-            y = Promo.objects.all
-            return render(request,'user_profile/Main_page.html',{'user':user},{'promos':y})
+            y = Promo.objects.all()
+            print (y)
+            xc = PostAd.objects.all().order_by("-date_publish")
+            print (xc)
+            return render(request, 'user_profile/Main_page.html', {'user': user, 'pro': y, 'AD': xc})
         else:
             context['registration_form'] = form
     else:
@@ -69,13 +72,12 @@ def log_in(request):
             password = request.POST['password']
             user = authenticate(email=email,password=password)
             if user:
-                login(request,user)
                 login(request, user)
                 y = Promo.objects.all()
                 print (y)
                 xc = PostAd.objects.all().order_by("-date_publish")
                 print (xc)
-                return render(request,'user_profile/Main_page.html',{'user':user})
+                return render(request, 'user_profile/Main_page.html', {'user': user, 'pro': y, 'AD': xc})
     else:
         form = AccountAuthenticationForm()
 
