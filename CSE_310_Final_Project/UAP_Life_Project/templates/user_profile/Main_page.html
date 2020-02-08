@@ -118,7 +118,8 @@
 
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <a href="#"><button type="button" class="btn btn-warning" style="margin-top: 6px; margin-right: 4px;font-size: 13px;">Post AD</button></a>
+
+                     <a href="{% url 'postAD' user.id %}"><button type="button" class="btn btn-warning" style="margin-top: 6px; margin-right: 4px;font-size: 13px;">POST AD</button></a>
                     <a href="{% url 'q_index' %}"><button type="button" class="btn btn-success" style="margin-top: 6px; margin-left: 4px; font-size: 13px;">UAP QUESTION BANK</button></a>
 
                 </ul>
@@ -292,7 +293,9 @@
 
             <div class="card-body" style="padding: 4px ;">
                 <h5 class="card-title">{{j.title}}</h5>
-                <p class="card-text">price:{{j.Price}}</p>
+                <p class="card-text">price:{{j.price}}</p>
+                <p class="card-text">contact:{{j.contact}}</p>
+                <p class="card-text">category:{{j.cat_id}}</p>
 
             </div>
         </div>

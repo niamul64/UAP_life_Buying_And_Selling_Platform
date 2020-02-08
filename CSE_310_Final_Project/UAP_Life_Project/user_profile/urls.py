@@ -9,4 +9,6 @@ urlpatterns = [
     path('logout/', views.user_logout, name='logout'),
     path('profile_update/', views.profile_update, name='profile_update'),
     path('question_bank/', include('question_bank.urls'), name='q_index'),
+    path('asdf/<int:userr>/', views.postAD, name='postAD'),
+    path('success/', views.success, name='success'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

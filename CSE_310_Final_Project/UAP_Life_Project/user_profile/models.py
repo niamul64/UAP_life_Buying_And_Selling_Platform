@@ -156,8 +156,9 @@ class PostAd(models.Model):
     image1 = models.ImageField(upload_to='PostAD_pic/',default="images/demo.jpg" ,null=True, blank=True)
     image2 = models.ImageField(upload_to='PostAD_pic/',default="images/demo.jpg",null=True, blank=True)
     date_publish = models.DateTimeField(default=timezone.now)
-    user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,null=True , blank=True)
-    cat_id = models.ForeignKey(Categories, on_delete=models.CASCADE,null=True , blank=True)
+    user_id = models.CharField(max_length=50,null=False,blank=False)
+    cat_id = models.CharField(max_length=50,null=False,blank=False)
+    contact = models.CharField(max_length=17,null=False,blank=False)
 
     def __str__(self):
         return self.title

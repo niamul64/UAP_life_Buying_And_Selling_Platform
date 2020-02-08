@@ -4,10 +4,10 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
-from .models import Promo, PostAd
+from .models import Promo, PostAd, Categories
 from .models import Account
 from .forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateForm
-
+from django.core.files.storage import FileSystemStorage
 
 @login_required
 @login_required
@@ -114,6 +114,57 @@ def profile_update(request):
 
 def profile_view(request, user_id):
     profile = get_object_or_404(Account, pk=user_id)
-    print(profile)
-    return render(request, 'user_profile/my_profile.html', {"profile": profile})
 
+    ad=PostAd.objects.filter(user_id=profile.id)
+    print(profile)
+    return render(request, 'user_profile/my_profile.html', {"profile": profile,"AD":ad})
+
+def postAD(request, userr):
+    user = get_object_or_404(Account, pk=userr)
+    if request.method == 'POST':
+        pri=20
+        cat = request.POST['value']
+        price=request.POST['price']
+        title = request.POST['title']
+        des=request.POST['des']
+        con=request.POST['cont']
+        try:
+            uploaded_image = request.FILES['image']
+            fs = FileSystemStorage()
+            filename = fs.save(uploaded_image.name, uploaded_image)
+            uploaded_file_url = fs.url(filename)
+        except:
+            pass
+
+
+        if cat==" ":
+            state="Missing Data for category. You Have to Give the Data Properly. Posting AD Unsuccessful."
+
+            return render(request, 'user_profile/success.html',{'state':state})
+        if title==" " or title=="":
+            state="Missing Data for title. You Have to Give the Data Properly. Posting AD Unsuccessful."
+
+            return render(request, 'user_profile/success.html',{'state':state})
+        try:
+            pri=int(price)
+
+        except:
+            state = "Wrong price. You Have to Give the Data Properly. Posting AD Unsuccessful."
+
+            return render(request, 'user_profile/success.html', {'state': state})
+        if des=="" or des==" ":
+            des="No description"
+
+        u=user.id
+
+
+
+        PostAd(title=title, price=price, description=des, user_id=u, cat_id=cat,contact=con).save()
+        state="AD Posting Successful."
+        return render(request, 'user_profile/success.html', {'state': state})
+
+
+    return render(request, 'user_profile/postAD.html', {"user": user})
+
+def success(request):
+    return render(request, 'user_profile/success.html')

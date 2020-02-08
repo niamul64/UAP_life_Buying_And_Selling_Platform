@@ -163,7 +163,7 @@
 				<!-- END SIDEBAR USER TITLE -->
 				<!-- SIDEBAR BUTTONS -->
 				<div >
-					<button type="button" class="btn btn-success btn-sm">ADD Post</button>
+					<a href="{% url 'postAD' user.id %}">	<button type="button" class="btn btn-success btn-sm">ADD Post</button></a>
 					<a href="{%url 'profile_update' %}"><button type="button" class="btn btn-danger btn-sm">Edit Profile</button></a>
 
 				</div>
@@ -179,4 +179,29 @@
 </center>
 <br>
 <br>
+
+    <div style="margin: 4px;">
+        <h1>my ADs:</h1>
+        {% for j in AD %}
+
+
+        <div class="card" style="width: 36rem; float: left; height: 250px ; margin: 22px;">
+
+            <img src="{{ j.image1.url }}" class="d-block w-100" alt="..." style="height: 200px ; width:auto ;">
+
+
+
+
+            <div class="card-body" style="padding: 4px ;">
+                <h5 class="card-title">{{j.title}}</h5>
+                <p class="card-text">price:{{j.price}}</p>
+                <p class="card-text">contact:{{j.contact}}</p>
+                <p class="card-text">category:{{j.cat_id}}</p>
+
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+
 {% endblock %}
