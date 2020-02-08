@@ -70,6 +70,11 @@ def log_in(request):
             user = authenticate(email=email,password=password)
             if user:
                 login(request,user)
+                login(request, user)
+                y = Promo.objects.all()
+                print (y)
+                xc = PostAd.objects.all().order_by("-date_publish")
+                print (xc)
                 return render(request,'user_profile/Main_page.html',{'user':user})
     else:
         form = AccountAuthenticationForm()
