@@ -68,7 +68,8 @@ class Account(AbstractBaseUser):
         ('BBA', 'BBA'),
     )
     department = models.CharField(max_length=20,choices=DEPT_CHOICES)
-    profile_pic = models.ImageField('profile_pics/', blank=True)
+    DEFAULT = 'default.png'
+    profile_pic = models.ImageField('profile_pics/', default=DEFAULT,blank=True)
     date_joined = models.DateField(verbose_name='date_joined',auto_now_add=True)
     last_login = models.DateField(verbose_name='last_login',auto_now=True)
     is_active = models.BooleanField(default=True)
@@ -142,7 +143,7 @@ class Categories(models.Model):
         ('Electronics', 'Electronics'),
         ('Others', 'Others'),
     )
-    sub_c =MultiSelectField( max_length =55, choices=sub_cat,null=True,blank= True )
+    sub_c = MultiSelectField( max_length =55, choices=sub_cat,null=True,blank= True )
     main_c = MultiSelectField(max_length=55, choices=main_cat,null=True, blank=True)
 
 

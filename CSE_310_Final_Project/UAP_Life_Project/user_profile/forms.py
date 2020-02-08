@@ -30,14 +30,21 @@ class AccountAuthenticationForm(forms.ModelForm):
 class AccountUpdateForm(forms.ModelForm):
     class Meta:
         model = Account
-        fields =('username','profile_pic')
+        fields = ('username', 'profile_pic')
 
     def clean_username(self):
         if self.is_valid():
             username = self.cleaned_data['username']
             try:
-                account = Account.objects,exclude(pk=self.instance.pk).get(username=username)
+                account = Account.objects.exclude(pk=self.instance.pk).get(username=username)
             except Account.DoesNotExist:
                 return username
             raise forms.ValidationError('Username "%s" is already in use.' % username)
+
+    def clean_profile_pic(self):
+        if self.is_valid():
+            profile_pic = self.cleaned_data['profile_pic']
+            return profile_pic
+
+
 

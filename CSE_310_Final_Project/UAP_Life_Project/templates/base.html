@@ -42,14 +42,38 @@
       }
     </style>
     <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
+    <link href="albums.css" rel="stylesheet">
   </head>
+
   <body class="text-center">
+   <header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <div class="inner">
+        <img src="{% static 'images/small.png' %}" align="left" width="80" height="50">
+    </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto">
+        {% if request.user.is_authenticated %}
+          <a class="nav-item nav-link " href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="{% url 'logout' %}">Log Out</a>
+      <a class="nav-item nav-link" href="{% url 'user_profile' user.id %}">Profile</a>
+         {% else %}
+         <a class="nav-item nav-link" href="{% url 'signup' %}">Signup</a>
+         <a class="nav-item nav-link" href="{% url 'login' %}">Log in</a>
+        {%endif%}
+
+
+
+    </div>
+  </div>
+</nav>
+</header>
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
           <header class="masthead mb-auto">
-    <div class="inner">
-        <img src="{% static 'images/small.png' %}" align="left" width="150" height="auto">
-    </div>
+
   </header>
 
   <div class="container">

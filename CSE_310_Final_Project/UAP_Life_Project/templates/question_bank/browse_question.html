@@ -5,7 +5,7 @@
     <h2>Welcome to the Question Bank!!</h2>
      <div class="container">
          {% for question in questions.all %}
-          <div class="card" style="width: 18rem;">
+          <div class="card mb-4 shadow" style="width: 18rem;">
   <img src="{{ question.image1.url }}" class="card-img-top" alt="...">
   <ul class="list-group list-group-flush">
       <li class="list-group-item"><strong>Submitted By</strong> : {{ question.author.username }}</li>

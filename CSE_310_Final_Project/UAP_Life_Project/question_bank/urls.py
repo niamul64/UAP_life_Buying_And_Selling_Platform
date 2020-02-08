@@ -9,8 +9,8 @@ urlpatterns = [
     path('submit_q', views.submit_question, name='submit_q'),
     path('browse_q', views.browse_question, name='browse_q'),
     path('browse_q/<int:question_id>', views.full_question, name='full_question'),
-    path('browse_q/browse_ans/<int:question_id>', views.browse_answer, name='browse_answer'),
     path('submit_answer/<int:question_id>', views.submit_answer, name='submit_answer'),
+    path('full_answer/<int:answer_id>', views.full_answer, name='full_answer'),
     path('must_authenticate', views.must_authenticate, name='must_authenticate'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

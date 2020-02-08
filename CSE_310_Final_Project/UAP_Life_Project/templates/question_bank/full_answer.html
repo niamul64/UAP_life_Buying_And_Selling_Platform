@@ -2,13 +2,14 @@
   {% block content %}
   <h3>Full Answer: </h3>
   <div class="offset-3 col-md-6">
-       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+       <div id="carouselExampleIndicators" class="carousel slide shadow" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
 
   </ol>
   <div class="carousel-inner">
@@ -16,7 +17,7 @@
      {% if full.image1 %}
         <img src="{{ full.image1.url }}" class="d-block w-100" alt="No image">
 
-  {% endif %}
+     {% endif %}
     </div>
     <div class="carousel-item">
       {% if full.image2 %}
@@ -48,6 +49,14 @@
 
       {% endif %}
     </div>
+      <div class="carousel-item">
+       {% if full.image6 %}
+
+     <img src="{{ full.image6.url }}" class="d-block w-100" alt="No image">
+
+
+       {% endif %}
+    </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -68,9 +77,9 @@
 
 <br/>
   <br/>
-  <a href="{% url 'browse_ans' %}"><button class="btn btn-primary" >See Answer</button></a>
 
-  <a href="{% url 'submit_answer' %}"><button class="btn btn-success">Submit Answer</button></a>
 
+
+  </br>
 
   {% endblock %}

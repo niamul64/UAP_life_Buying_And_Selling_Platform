@@ -2,16 +2,19 @@
 
 {% block content %}
 <div class="container">
-
+    <h2>Welcome to the Question Bank!!</h2>
+     <div class="container">
          {% for answer in answers.all %}
-
-        <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="{{ answer.image1.url }}" alt="Card image cap">
+          <div class="card" style="width: 18rem;">
+  <img src="{{ answer.image1.url }}" class="card-img-top" alt="...">
+  <ul class="list-group list-group-flush">
+      <li class="list-group-item"><strong>Submitted By</strong> : {{ answer.author.username }}</li>
+  </ul>
   <div class="card-body">
-    <h5 class="card-title">Submitted By : {{ answer.author.username }}</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Full Answer</a>
+    <a href="#" class="card-link">See Full Answer </a>
+
   </div>
+</div>
 </div>
 
 

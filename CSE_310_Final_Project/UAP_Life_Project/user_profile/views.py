@@ -44,9 +44,9 @@ def signup(request):
             user = authenticate(email=email, password=raw_password)
             login(request, user)
             y = Promo.objects.all()
-            print (y)
+            #print (y)
             xc = PostAd.objects.all().order_by("-date_publish")
-            print (xc)
+            #print (xc)
             return render(request, 'user_profile/Main_page.html', {'user': user, 'pro': y, 'AD': xc})
         else:
             context['registration_form'] = form
@@ -72,12 +72,8 @@ def log_in(request):
             password = request.POST['password']
             user = authenticate(email=email,password=password)
             if user:
-                login(request, user)
-                y = Promo.objects.all()
-                print (y)
-                xc = PostAd.objects.all().order_by("-date_publish")
-                print (xc)
-                return render(request, 'user_profile/Main_page.html', {'user': user, 'pro': y, 'AD': xc})
+                login(request,user)
+                return render(request,'user_profile/Main_page.html',{'user':user})
     else:
         form = AccountAuthenticationForm()
 
@@ -100,7 +96,7 @@ def profile_update(request):
         return redirect("login")
     context ={}
     if request.POST:
-        form = AccountUpdateForm(request.POST, instance=request.user)
+        form = AccountUpdateForm(request.POST or None, request.FILES or None, instance=request.user)
         if form.is_valid():
             form.save()
     else:
@@ -113,10 +109,11 @@ def profile_update(request):
         )
 
     context['update_form'] = form
-    return render(request,'user_profile/profile_update.html',context)
+    return render(request, 'user_profile/profile_update.html', context)
 
 
 def profile_view(request, user_id):
     profile = get_object_or_404(Account, pk=user_id)
     print(profile)
-    return render(request,'user_profile/my_profile.html',{"profile": profile})
+    return render(request, 'user_profile/my_profile.html', {"profile": profile})
+

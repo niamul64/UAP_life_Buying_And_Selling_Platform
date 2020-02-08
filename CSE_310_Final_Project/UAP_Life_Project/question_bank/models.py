@@ -49,10 +49,11 @@ class Question(models.Model):
     )
     session = models.CharField(null=False, blank=False, max_length=20,choices=SESSION_CHOICES)
     image1 = models.ImageField(upload_to=upload_location, null=False, blank=False)
-    image2 = models.ImageField(upload_to=upload_location,null=True,blank=True)
-    image3 = models.ImageField(upload_to=upload_location,null=True,blank=True)
-    image4 = models.ImageField(upload_to=upload_location,null=True,blank=True)
-    image5 = models.ImageField(upload_to=upload_location,null=True,blank=True)
+    DEFAULT = 'default2.png'
+    image2 = models.ImageField(upload_to=upload_location,blank=True, default=DEFAULT)
+    image3 = models.ImageField(upload_to=upload_location,blank=True, default=DEFAULT)
+    image4 = models.ImageField(upload_to=upload_location,blank=True, default=DEFAULT)
+    image5 = models.ImageField(upload_to=upload_location,blank=True, default=DEFAULT)
     date_published = models.DateTimeField(auto_now_add=True, verbose_name='date_published')
     date_updated = models.DateTimeField(auto_now=True, verbose_name='date_updated')
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -79,14 +80,15 @@ pre_save.connect(pre_save_question_receiver, sender=Question)
 
 
 class Answer(models.Model):
+    DEFAULT = 'default2.png'
     image1 = models.ImageField(upload_to='ans_images', blank=False, null=False)
-    image2 = models.ImageField(upload_to='ans_images', blank=True)
-    image3 = models.ImageField(upload_to='ans_images', blank=True)
-    image4 = models.ImageField(upload_to='ans_images', blank=True)
-    image5 = models.ImageField(upload_to='ans_images', blank=True)
-    image6 = models.ImageField(upload_to='ans_images', blank=True)
+    image2 = models.ImageField(upload_to='ans_images', blank=True, default=DEFAULT)
+    image3 = models.ImageField(upload_to='ans_images', blank=True, default=DEFAULT)
+    image4 = models.ImageField(upload_to='ans_images', blank=True, default=DEFAULT)
+    image5 = models.ImageField(upload_to='ans_images', blank=True, default=DEFAULT)
+    image6 = models.ImageField(upload_to='ans_images', blank=True, default=DEFAULT)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, related_name='questions', on_delete=models.CASCADE)
 
     def __str__(self):
         return "Sol-of-qs" + str(self.question.id)+"By-" + str(self.author.username)

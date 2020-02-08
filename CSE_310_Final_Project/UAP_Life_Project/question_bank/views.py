@@ -53,6 +53,11 @@ def submit_answer(request, question_id):
     return render(request, 'question_bank/submit_answer.html', context)
 
 
+def full_answer(request, answer_id):
+    full = get_object_or_404(Answer, pk=answer_id)
+    return render(request, 'question_bank/full_answer.html', {'full': full})
+
+
 def browse_question(request):
     questions = Question.objects
     return render(request, 'question_bank/browse_question.html', {'questions': questions})
@@ -60,11 +65,5 @@ def browse_question(request):
 
 def full_question(request, question_id):
     full = get_object_or_404(Question, pk=question_id)
-    return render(request,'question_bank/full_question.html',{"full": full})
-
-
-def browse_answer(request, question_id):
-    answers = get_object_or_404(Answer, fk=question_id)
-    print(answers)
-
-    return render(request, 'question_bank/browse_answer.html', {'answers': answers})
+    answers = Answer.objects.filter(question_id=question_id)
+    return render(request, 'question_bank/full_question.html', {"full": full, 'answers': answers})

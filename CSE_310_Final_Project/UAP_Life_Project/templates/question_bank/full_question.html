@@ -2,7 +2,8 @@
   {% block content %}
   <h3>Full Question: {{full.subject}}/{{full.department}}/{{full.question_type}}</h3>
   <div class="offset-3 col-md-6">
-       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <div class="card-mb-4 shadow">
+               <div id="carouselExampleIndicators" class="carousel slide shadow" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -11,21 +12,21 @@
       <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
 
   </ol>
-  <div class="carousel-inner">
+  <div class="carousel-inner shadow">
     <div class="carousel-item active">
      {% if full.image1 %}
         <img src="{{ full.image1.url }}" class="d-block w-100" alt="No image">
 
   {% endif %}
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item shadow">
       {% if full.image2 %}
 
      <img src="{{ full.image2.url }}" class="d-block w-100" alt="No image">
 
       {% endif %}
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item shadow">
        {% if full.image3 %}
 
      <img src="{{ full.image3.url }}" class="d-block w-100" alt="No image">
@@ -33,7 +34,7 @@
 
 {% endif %}
     </div>
-      <div class="carousel-item">
+      <div class="carousel-item shadow">
       {% if full.image4 %}
 
      <img src="{{ full.image4.url }}" class="d-block w-100" alt="No image">
@@ -41,7 +42,7 @@
       {% endif %}
     </div>
 
-      <div class="carousel-item">
+      <div class="carousel-item shadow">
       {% if full.image5 %}
 
      <img src="{{ full.image5.url }}" class="d-block w-100" alt="No image">
@@ -58,6 +59,8 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+      </div>
+
 
 
 
@@ -68,9 +71,28 @@
 
 <br/>
   <br/>
-  <a href="#"><button class="btn btn-primary" >See Answer</button></a>
 
-  <a href="{% url 'submit_answer' full.id %}"><button class="btn btn-success">Submit Answer</button></a>
 
+  <h2 align="left">Solutions : </h2>
+  <br/>
+  <br/>
+  <div class="container">
+     <div class="container">
+         {% for answer in answers.all %}
+          <div class="col-md-4">
+          <div class="card mb-4 shadow">
+           <img class="card-img-top" src= "{{ answer.image1.url }}" alt="No image found!" />
+            <div class="card-body">
+              <p class="card-text"><strong>Solve by :</strong> {{answer.question.author.username}}</p>
+                <a href="{%url 'full_answer' answer.id %}" class="card-link">See Full Answer </a>
+            </div>
+          </div>
+        </div>
+         {% endfor %}
+     </div>
+
+  </div>
+  </br>
+  <a href="{% url 'submit_answer' full.id %}"><button class="btn btn-success">Submit Your Answer</button></a>
 
   {% endblock %}
