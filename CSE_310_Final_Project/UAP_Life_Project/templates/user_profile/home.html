@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome to UAP Life</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+</head>
+<body>
+
+    <!-- Logo Part here-->
+
+        <nav class="navbar navbar-expand-lg navbar-transparent bg-transparent">
+            <a href="#">
+                <img src="logo2.png" style="width:230px;height:auto;">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Login & Sign up Button part here -->
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a href="l{% url 'login' %}" ><button class="btn btn-outline-primary btn-lg"> Log in</button></a>
+                </li>
+                <li class="nav-item">
+                    <a href="l{% url 'login' %}" ><button class="btn btn-outline-primary btn-lg"> Sign up</button></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+    <!-- Our Services part here -->
+
+    <div class="card" style="margin-top: 100px; margin-inline-start: 250px; margin-inline-end: 250px;" >
+        <div class="card-header" style="background-color: rgb(10, 169, 231);">
+          <h2><b>Our Services</b></h2>
+        </div>
+        <div class="card-body" style="background-color: rgb(151, 152, 153);">
+            <ul>
+                <li><h5>Buy & Sell Platform</h5></li>
+                <li><h5>Questions Bank</h5></li>
+                <li><h5>Post Your Add for Product Buy & Sell</h5></li>
+                <li><h5>Student Accomodation Services</h5></li>
+                <li><h5>Promotion Services for Any Program or Event</h5></li>
+            </ul>
+          <a href="#" class="btn btn-primary">About us</a>
+          <a href="#" class="btn btn-primary">Our Mission</a>
+        </div>
+      </div>  
+
+    
+</body>
+</html>
