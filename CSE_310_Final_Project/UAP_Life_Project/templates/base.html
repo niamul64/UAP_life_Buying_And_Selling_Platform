@@ -1,5 +1,5 @@
 <!doctype html>
-{% load staticfiles%}
+{% load staticfiles %}
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -47,7 +47,7 @@
 
   <body class="text-center">
    <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
    <div class="inner">
         <img src="{% static 'images/small.png' %}" align="left" width="80" height="50">
     </div>
@@ -58,11 +58,24 @@
     <div class="navbar-nav ml-auto">
         {% if request.user.is_authenticated %}
           <a class="nav-item nav-link " href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+
+        <a class="nav-item nav-link " href="{% url  'post_ad' %}">Post Ad <span class="sr-only">(current)</span></a>
+         <a class="nav-item nav-link " href="{% url 'q_index' %}">Question bank <span class="sr-only">(current)</span></a>
+         <form class="form-inline" >
+    <input class="form-control mr-sm-2"
+           name="search"
+           type="search"
+           placeholder="Search"
+           aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
       <a class="nav-item nav-link" href="{% url 'logout' %}">Log Out</a>
+
       <a class="nav-item nav-link" href="{% url 'user_profile' user.id %}">Profile</a>
          {% else %}
          <a class="nav-item nav-link" href="{% url 'signup' %}">Signup</a>
          <a class="nav-item nav-link" href="{% url 'login' %}">Log in</a>
+
         {%endif%}
 
 
@@ -75,6 +88,7 @@
           <header class="masthead mb-auto">
 
   </header>
+
 
   <div class="container">
       <!-- Extra things goes here-->

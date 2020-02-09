@@ -4,25 +4,23 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
-from .models import Promo, PostAd, Categories
+from .models import Promo, PostAd
 from .models import Account
-from .forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateForm
-from django.core.files.storage import FileSystemStorage
+from .forms import RegistrationForm, AccountAuthenticationForm, AccountUpdateForm,CreatePostForm
 
-@login_required
+
+
 @login_required
 def home(request):
     y = Promo.objects.all()
-
     xc = PostAd.objects.all().order_by("-date_publish")
+    search_term = ""
+    if 'search' in request.GET:
+        print ("This is working!!!")
+        search_term = request.GET['search']
+        xc = xc.filter(category__icontains=search_term)
 
-    if request.method == 'POST':
-        se= request.POST["search"]
-        print ("got form SEarch:"+se)
-        res= [x for x in xc if se in x.title]
-        xc=res
-
-    return render(request, 'user_profile/Main_page.html',{'pro':y,'AD':xc})
+    return render(request, 'user_profile/home.html', {'pro': y, 'AD': xc, 'search_term': search_term})
 
 
 def index(request):
@@ -47,7 +45,7 @@ def signup(request):
             #print (y)
             xc = PostAd.objects.all().order_by("-date_publish")
             #print (xc)
-            return render(request, 'user_profile/Main_page.html', {'user': user, 'pro': y, 'AD': xc})
+            return render(request, 'user_profile/home.html', {'user': user, 'pro': y, 'AD': xc})
         else:
             context['registration_form'] = form
     else:
@@ -58,7 +56,6 @@ def signup(request):
 
 
 # log in view
-
 
 def log_in(request):
     context = {}
@@ -73,7 +70,9 @@ def log_in(request):
             user = authenticate(email=email,password=password)
             if user:
                 login(request,user)
-                return render(request,'user_profile/Main_page.html',{'user':user})
+                y = Promo.objects.all()
+                xc = PostAd.objects.all().order_by("-date_publish")
+                return render(request, 'user_profile/home.html', {'user':user,'pro': y, 'AD': xc, 'search_term': search_term})
     else:
         form = AccountAuthenticationForm()
 
@@ -90,7 +89,7 @@ def user_logout(request):
 
 
 # user profile update
-
+@login_required
 def profile_update(request):
     if not request.user.is_authenticated:
         return redirect("login")
@@ -111,60 +110,32 @@ def profile_update(request):
     context['update_form'] = form
     return render(request, 'user_profile/profile_update.html', context)
 
-
+@login_required
 def profile_view(request, user_id):
     profile = get_object_or_404(Account, pk=user_id)
-
-    ad=PostAd.objects.filter(user_id=profile.id)
-    print(profile)
-    return render(request, 'user_profile/my_profile.html', {"profile": profile,"AD":ad})
-
-def postAD(request, userr):
-    user = get_object_or_404(Account, pk=userr)
-    if request.method == 'POST':
-        pri=20
-        cat = request.POST['value']
-        price=request.POST['price']
-        title = request.POST['title']
-        des=request.POST['des']
-        con=request.POST['cont']
-        try:
-            uploaded_image = request.FILES['image']
-            fs = FileSystemStorage()
-            filename = fs.save(uploaded_image.name, uploaded_image)
-            uploaded_file_url = fs.url(filename)
-        except:
-            pass
+    ads = PostAd.objects.filter(author_id=user_id)
+    return render(request, 'user_profile/my_profile.html', {"profile": profile, "ads":ads})
 
 
-        if cat==" ":
-            state="Missing Data for category. You Have to Give the Data Properly. Posting AD Unsuccessful."
+@login_required
+def submit_post(request):
+    context = {}
+    user = request.user
+    if not user.is_authenticated:
+        return redirect('must_authenticate')
 
-            return render(request, 'user_profile/success.html',{'state':state})
-        if title==" " or title=="":
-            state="Missing Data for title. You Have to Give the Data Properly. Posting AD Unsuccessful."
+    form = CreatePostForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        obj = form.save(commit=False)
+        author = Account.objects.filter(email=user.email).first()
+        obj.author = author
+        obj.save()
+        form = CreatePostForm()
+    context['form'] = form
+    return render(request, 'user_profile/submit_post.html', context)
 
-            return render(request, 'user_profile/success.html',{'state':state})
-        try:
-            pri=int(price)
+@login_required
+def full_post(request, post_id):
+    full = get_object_or_404(PostAd, pk=post_id)
+    return render(request, 'user_profile/post_detail.html', {'full': full})
 
-        except:
-            state = "Wrong price. You Have to Give the Data Properly. Posting AD Unsuccessful."
-
-            return render(request, 'user_profile/success.html', {'state': state})
-        if des=="" or des==" ":
-            des="No description"
-
-        u=user.id
-
-
-
-        PostAd(title=title, price=price, description=des, user_id=u, cat_id=cat,contact=con).save()
-        state="AD Posting Successful."
-        return render(request, 'user_profile/success.html', {'state': state})
-
-
-    return render(request, 'user_profile/postAD.html', {"user": user})
-
-def success(request):
-    return render(request, 'user_profile/success.html')

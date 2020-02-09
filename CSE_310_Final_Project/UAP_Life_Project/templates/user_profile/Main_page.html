@@ -118,8 +118,7 @@
 
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-
-                     <a href="{% url 'postAD' user.id %}"><button type="button" class="btn btn-warning" style="margin-top: 6px; margin-right: 4px;font-size: 13px;">POST AD</button></a>
+                    <a href="#"><button type="button" class="btn btn-warning" style="margin-top: 6px; margin-right: 4px;font-size: 13px;">Post AD</button></a>
                     <a href="{% url 'q_index' %}"><button type="button" class="btn btn-success" style="margin-top: 6px; margin-left: 4px; font-size: 13px;">UAP QUESTION BANK</button></a>
 
                 </ul>
@@ -235,43 +234,27 @@
             </div>
 
 
-
-
-
-
-
         </div>
+
     </nav>
 
 
 
     <!--promotions-->
 
-    <i class="fas fa-box " style="float: right; background-color:  rgb(161, 162, 165);">
- <div style="padding: 8px;">
-    <h1>Promotions:</h1>
-   {% for i in pro %}
+   <div align="right">
+       <h1>Promotions:</h1>
+           {% for i in pro %}
+              <div class="card shadow" style="width: 36rem;">
+                  <img src="{{ i.image.url }}" class="d-block w-100" width="100%" height="225" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{i.title}}</h5>
+                    <p class="card-text">{{i.description}}</p>
+                  </div>
+              </div>
+          {% endfor %}
+   </div>
 
-
-  <div class="card" style="width: 36rem;">
-
-
-
-                <img src="{{ i.image.url }}" class="d-block w-100" alt="...">
-
-
-
-
-  <div class="card-body">
-    <h5 class="card-title">{{i.title}}</h5>
-    <p class="card-text">{{i.description}}</p>
-
-  </div>
-</div>
-</div>
-  {% endfor %}
-
-    </i>
 
 
     <!--promotions-->
@@ -279,37 +262,35 @@
     <!--AD show-->
 
 
-    <div style="margin: 4px;">
-        <h1>ADs:</h1>
+    <div align="center" class="container">
+         <h1>Recent Posts:</h1>
         {% for j in AD %}
 
 
-        <div class="card" style="width: 36rem; float: left; height: 250px ; margin: 22px;">
+        <div class="col">
+            <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+             <img class="card-img-top" src= "{{ j.image1.url }}" width="100%" height="225" alt="No image found!" />
+            <div class="card-body">
+                 <h1 class="card-title">{{j.title}}</h1>
+                <h5 class="card-title pricing-card-title">Price : {{j.price}} <small ></small></h5>
 
-            <img src="{{ j.image1.url }}" class="d-block w-100" alt="..." style="height: 200px ; width:auto ;">
-
-
-
-
-            <div class="card-body" style="padding: 4px ;">
-                <h5 class="card-title">{{j.title}}</h5>
-                <p class="card-text">price:{{j.price}}</p>
-                <p class="card-text">contact:{{j.contact}}</p>
-                <p class="card-text">category:{{j.cat_id}}</p>
-
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <a href=""> <button type="button" class="btn btn btn-outline-secondary">View</button></a>
+                </div>
+                <p class="text-muted"> {{j.date_publish}}</p>
+              </div>
             </div>
+          </div>
         </div>
+        </div>
+
     </div>
 
     {% endfor %}
 
-
-
-
     <!--AD show-->
-
-
-
 
 
 </body>

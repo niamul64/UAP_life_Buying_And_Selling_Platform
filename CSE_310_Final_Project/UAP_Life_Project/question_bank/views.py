@@ -6,6 +6,7 @@ from django.shortcuts import get_object_or_404
 from .models import Question, Answer
 from user_profile.models import Account
 from .forms import CreateQuestionForm, CreateAnswerForm
+from django.db.models import Q
 
 # Create your views here.
 
@@ -58,12 +59,22 @@ def full_answer(request, answer_id):
     return render(request, 'question_bank/full_answer.html', {'full': full})
 
 
-def browse_question(request):
-    questions = Question.objects
-    return render(request, 'question_bank/browse_question.html', {'questions': questions})
-
-
 def full_question(request, question_id):
     full = get_object_or_404(Question, pk=question_id)
     answers = Answer.objects.filter(question_id=question_id)
     return render(request, 'question_bank/full_question.html', {"full": full, 'answers': answers})
+
+
+def browse_question(request):
+    context = {}
+    search_term = ""
+    questions = Question.objects.all().order_by("-date_published")
+    if 'search' in request.GET:
+        print ("This is working!!!")
+        search_term = request.GET['search']
+        questions = questions.filter(subject__icontains=search_term)
+
+    context['questions'] = questions
+    context['search_term'] = search_term
+    return render(request, 'question_bank/browse_question.html',context)
+

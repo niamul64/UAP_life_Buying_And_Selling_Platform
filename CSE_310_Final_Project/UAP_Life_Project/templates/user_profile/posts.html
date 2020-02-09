@@ -2,26 +2,6 @@
 
 {% block content %}
 
-
-    <div align="right" class="float-sm-right">
-        <div  class="container float-left">
-       <h3>Promotions:</h3>
-           {% for i in pro %}
-              <div class="card mb-4  shadow" style="width: 18rem;">
-                  <img src="{{ i.image.url }}" class="d-block w-100" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">{{i.title}}</h5>
-                    <p class="card-text">{{i.description}}</p>
-                  </div>
-              </div>
-          {% endfor %}
-   </div>
-
-
-
-
-
-
 <div  class="container float-left">
      <h3 align="left">Recent Posts:</h3>
         {% for j in AD %}
@@ -37,7 +17,6 @@
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                     <a href="{% url 'full_post' j.id %}"> <button type="button" class="btn btn btn-outline-secondary">View</button></a>
-                    <a href="mailto:{{j.author.email}}"> <button type="button" class="btn btn btn-outline-secondary">Contact</button></a>
                 </div>
                 <p class="text-muted"> {{j.date_publish}}</p>
               </div>
@@ -61,4 +40,4 @@
 
 
 
-{% endblock %}
+{% endblock %}>

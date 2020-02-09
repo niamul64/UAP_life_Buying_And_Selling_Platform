@@ -69,9 +69,10 @@ class Account(AbstractBaseUser):
     )
     department = models.CharField(max_length=20,choices=DEPT_CHOICES)
     DEFAULT = 'default.png'
-    profile_pic = models.ImageField('profile_pics/', default=DEFAULT,blank=True)
-    date_joined = models.DateField(verbose_name='date_joined',auto_now_add=True)
-    last_login = models.DateField(verbose_name='last_login',auto_now=True)
+    profile_pic = models.ImageField('profile_pics/', default=DEFAULT, blank=True)
+    cell_number = models.CharField(max_length=12,blank=True,null=True)
+    date_joined = models.DateField(verbose_name='date_joined', auto_now_add=True)
+    last_login = models.DateField(verbose_name='last_login', auto_now=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
@@ -92,73 +93,37 @@ class Account(AbstractBaseUser):
         return True
 
 
-
-
-
 class Promo(models.Model):
     title = models.CharField(max_length=50,null=False,blank=False)
     description = models.TextField(max_length=200)
     image = models.ImageField(upload_to='promo_pic/')
     date_published = models.DateTimeField(default=timezone.now)
 
-
     def __str__(self):
         return self.description
 
 
-
-
-
-
-class Categories(models.Model):
-
-    sub_cat = (
-        ('CSE', 'CSE'),
-        ('EEE', 'EEE'),
-        ('Civil', 'Civil'),
-        ('Architecture', 'Architecture'),
-        ('Pharmacy', 'Pharmacy'),
-        ('English', 'English'),
-        ('Business', 'Business'),
-        ('Law', 'Law'),
-        ('History', 'History'),
-        ('Math', 'Math'),
-        ('Others', 'Others'),
-        ('Mobile', 'Mobile'),
-        ('Mobile Accessories', 'Mobile Accessories'),
-        ('Computer & laptop', 'Computer & laptop'),
-        ('Computer & laptop Accessories', 'Computer & laptop Accessories'),
-        ('Camera & Camera Accessories', 'Camera & Camera Accessories'),
-        ('Other Electronics', 'Other Electronics'),
-        ('Business', 'Business'),
-
-    )
-    main_cat = (
+class PostAd(models.Model):
+    title = models.CharField(max_length=50, null=False, blank=False)
+    price = models.CharField(max_length=20, null=False, blank=False)
+    description = models.TextField(max_length=200, default="Something about your post...",blank=False,null=False)
+    CAT_CHOICES = (
         ('Books', 'Books'),
         ('Job', 'Job'),
         ('Service/Volunteer', 'Service/Volunteer'),
         ('Accommodation', 'Accommodation'),
-        ('Tution', 'Tution'),
+        ('Tuition', 'Tuition'),
         ('Borrow', 'Borrow'),
         ('Electronics', 'Electronics'),
         ('Others', 'Others'),
     )
-    sub_c = MultiSelectField( max_length =55, choices=sub_cat,null=True,blank= True )
-    main_c = MultiSelectField(max_length=55, choices=main_cat,null=True, blank=True)
-
-
-
-
-class PostAd(models.Model):
-    title = models.CharField(max_length=50,null=False,blank=False)
-    price = models.CharField(max_length=6,null=False, blank=False)
-    description = models.TextField(max_length=200, default="")
-    image1 = models.ImageField(upload_to='PostAD_pic/',default="images/demo.jpg" ,null=True, blank=True)
-    image2 = models.ImageField(upload_to='PostAD_pic/',default="images/demo.jpg",null=True, blank=True)
-    date_publish = models.DateTimeField(default=timezone.now)
-    user_id = models.CharField(max_length=50,null=False,blank=False)
-    cat_id = models.CharField(max_length=50,null=False,blank=False)
-    contact = models.CharField(max_length=17,null=False,blank=False)
+    category = models.CharField(max_length=20, choices=CAT_CHOICES)
+    DEFAULT = 'default2.png'
+    image1 = models.ImageField(upload_to='ans_images', blank=False, null=False)
+    image2 = models.ImageField(upload_to='ans_images', blank=True, default=DEFAULT)
+    date_publish = models.DateTimeField(auto_now_add=True)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
+

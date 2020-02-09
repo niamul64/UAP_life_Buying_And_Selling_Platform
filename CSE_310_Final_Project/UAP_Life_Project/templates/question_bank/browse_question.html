@@ -2,20 +2,19 @@
 
 {% block content %}
 <div class="container">
+
+ <nav class="navbar navbar-light bg-light">
+
+</nav>
     <h2>Welcome to the Question Bank!!</h2>
      <div class="container">
-         {% for question in questions.all %}
+         {% for question in questions %}
           <div class="card mb-4 shadow" style="width: 18rem;">
   <img src="{{ question.image1.url }}" class="card-img-top" alt="...">
   <ul class="list-group list-group-flush">
       <li class="list-group-item"><strong>Submitted By</strong> : {{ question.author.username }}</li>
+      <li class="list-group-item"><strong>Subject</strong> : {{ question.subject}}</li>
     <li class="list-group-item"><strong>Department</strong> : {{ question.department }}</li>
-    <li class="list-group-item"><strong>Semester</strong>   : {{ question.semester }}</li>
-      <li class="list-group-item"><strong>Exam Type</strong>   : {{ question.question_type }}</li>
-      <li class="list-group-item"><strong>Session</strong>   : {{ question.session }}</li>
-      <li class="list-group-item"><strong>Exam Date</strong>   : {{ question.exam_date }}</li>
-      <li class="list-group-item"><strong>Upload Date</strong>   : {{ question.date_published }}</li>
-
 
   </ul>
   <div class="card-body">
@@ -24,12 +23,14 @@
   </div>
 </div>
 </div>
+     {% endfor %}
+
 
 
          </br>
       </br>
 
-         {% endfor %}
+
    </div>
 
 </div>
